@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#ede9e5] text-zinc-900 text-sm">
+        <footer id = "foot" className="bg-[#ede9e5] text-zinc-900 text-sm">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
       {/* Company Info */}
@@ -38,7 +38,7 @@ export default function Footer() {
       <div>
         <h4 className="text-zinc-900 font-semibold mb-4">Follow Us</h4>
         <div className="flex space-x-4">
-          <a href="https://www.instagram.com/rivridisart/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500">
+          <a href="https://www.instagram.com/rivridis/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500">
             <i className="fab fa-facebook"></i> Instagram
           </a>
           <a href="https://github.com/Rivridis/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-500">

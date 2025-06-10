@@ -26,7 +26,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-4 text-sm">
                 <button>
-                    <Link href="#"><span className="text-[#ede9e5] cursor-pointer text-sm">About</span></Link>
+                    <Link href="#foot"><span className="text-[#ede9e5] cursor-pointer text-sm">Menu</span></Link>
                 </button>
             </div>
         </nav>
