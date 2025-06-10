@@ -1,7 +1,14 @@
+"use client"
 import Image from "next/image";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import HeroTitle from "./components/title";
+import { motion } from "framer-motion";
+
+const slideUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
 
 export default function Home() {
   return (
@@ -19,8 +26,14 @@ export default function Home() {
         </header>
       </div>
       
-         {/* Showcase Section */}
-      <div className="w-full min-h-screen bg-zinc-800 text-[#ede9e5] flex flex-col items-center justify-center">
+      <motion.div
+        className="w-full min-h-screen bg-zinc-800 text-[#ede9e5] flex flex-col items-center justify-center"
+        variants={slideUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        
+      >
         <div className="max-w-5xl w-full px-6">
           <h2 className="text-4xl font-bold mb-10 text-center">Showcase</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
@@ -45,7 +58,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mission Section */}
       <div className="w-full min-h-screen bg-zinc-900 text-[#ede9e5] flex flex-col items-center justify-center">

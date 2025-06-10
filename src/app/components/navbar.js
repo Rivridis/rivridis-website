@@ -9,8 +9,8 @@ export default function Navbar() {
             </div>
             <div className="flex-1 flex justify-center">
                 <div className="flex gap-4 hidden md:flex">
-                    <Link href="#"><span className="text-[#ede9e5] cursor-pointer text-sm">Home</span></Link>
-                    <Link href="#"><span className="text-[#ede9e5] cursor-pointer text-sm">Services</span></Link>
+                    <Link href="/"><span className="text-[#ede9e5] cursor-pointer text-sm">Home</span></Link>
+                    <Link href="/services"><span className="text-[#ede9e5] cursor-pointer text-sm">Services</span></Link>
 
                     <div className="relative group">
                         <span className="text-[#ede9e5] cursor-pointer text-sm">Resources</span>
