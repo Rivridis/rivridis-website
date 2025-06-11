@@ -1,0 +1,5 @@
+{
+    "name": "rivridis",
+	"compatibility_date": "2025-06-11",
+    "main": "src/index.ts" 
+}
