@@ -27,25 +27,25 @@ export default function Home() {
                     Unlock powerful capabilities designed to boost your productivity and streamline your workflow.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full">
-                    <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+                    <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">⚡</span>
-                      <h3 className="font-semibold text-lg mb-2 text-[#2d2a26]">Local Language Models</h3>
-                      <p className="text-[#4b4845]">Run advanced AI models directly on your Windows device for privacy and speed.</p>
+                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Local Language Models</h3>
+                      <p className="text-[#ede9e5]">Run advanced AI models directly on your Windows device for privacy and speed.</p>
                     </div>
-                    <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+                    <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🔗</span>
-                      <h3 className="font-semibold text-lg mb-2 text-[#2d2a26]">Function Calling</h3>
-                      <p className="text-[#4b4845]">Automate tasks and connect your favorite apps with robust function calling support.</p>
+                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Function Calling</h3>
+                      <p className="text-[#ede9e5]">Automate tasks and connect your favorite apps with robust function calling support.</p>
                     </div>
-                    <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+                    <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🛠️</span>
-                      <h3 className="font-semibold text-lg mb-2 text-[#2d2a26]">Custom Workflows</h3>
-                      <p className="text-[#4b4845]">Create and manage personalized workflows to fit your unique needs.</p>
+                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Custom Workflows</h3>
+                      <p className="text-[#ede9e5]">Create and manage personalized workflows to fit your unique needs.</p>
                     </div>
-                    <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+                    <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🔒</span>
-                      <h3 className="font-semibold text-lg mb-2 text-[#2d2a26]">Privacy First</h3>
-                      <p className="text-[#4b4845]">Your data stays on your device. No cloud processing required.</p>
+                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Privacy First</h3>
+                      <p className="text-[#ede9e5]">Your data stays on your device. No cloud processing required.</p>
                     </div>
                   </div>
                 </section>

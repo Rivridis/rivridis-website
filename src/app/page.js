@@ -43,18 +43,18 @@ export default function Home() {
               <p className="text-base text-gray-300 mb-4 text-center">
                 A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
               </p>
-              <a href="https://github.com/Rivridis/LLM-Assistant" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">View on GitHub</a>
+              <a href="https://github.com/Rivridis/LLM-Assistant" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on GitHub</a>
             </div>
             {/* Product Card 2 */}
             <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
               <h3 className="text-2xl font-semibold mb-2">Artworks</h3>
-              <a href="https://www.instagram.com/rivridisart/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">View on Instagram</a>
+              <a href="https://www.instagram.com/rivridisart/" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on Instagram</a>
             </div>
             {/* Product Card 3 */}
             <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
               <h3 className="text-2xl font-semibold mb-2">Stories</h3>
 
-              <a href="" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">View on website</a>
+              <a href="" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on website</a>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function Home() {
     <div className="text-center pt-16">
       <a
         href="/services"
-        className="inline-block bg-[#DDA15E] text-black text-sm font-medium px-6 py-3 rounded-md shadow hover:bg-[#ede9e5] transition duration-300"
+        className="inline-block bg-[#b6ad90] text-black text-sm font-medium px-6 py-3 rounded-md shadow hover:bg-[#ede9e5] transition duration-300"
       >
         Let’s Work Together
       </a>

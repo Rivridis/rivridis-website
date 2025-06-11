@@ -14,7 +14,7 @@ export default function Home() {
             {/* Card 1 */}
             <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
                 <div className="flex-1 text-[#ede9e5]">
-                    <Link href = "/windows-assistant" className="text-2xl font-bold mb-2 text-blue-400 hover:underline">Windows Assistant</Link>
+                    <Link href = "/windows-assistant" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Windows Assistant</Link>
                     <p className="text-zinc-200">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.</p>
                 </div>
                 <img
@@ -25,7 +25,7 @@ export default function Home() {
             {/* Card 2 */}
             <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
                 <div className="flex-1 text-[#ede9e5]">
-                    <Link href = "/services/windows-assistant" className="text-2xl font-bold mb-2 text-blue-400 hover:underline">Software Development</Link>
+                    <Link href = "/contact" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Software Development</Link>
                     <p className="text-zinc-200">Full-stack custom software solutions — from concept to deployment — for web, mobile, and desktop applications.</p>
                 </div>
                 <img
@@ -36,7 +36,7 @@ export default function Home() {
             {/* Card 3 */}
             <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
                 <div className="flex-1 text-[#ede9e5]">
-                    <Link href = "/services/windows-assistant" className="text-2xl font-bold mb-2 text-blue-400 hover:underline">Artwork and Design</Link>
+                    <Link href = "/contact" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Artwork and Design</Link>
                     <p className="text-zinc-200">Unique digital illustrations and branding art tailored for your personal or commercial use.</p>
                 </div>
                 <img
@@ -47,7 +47,7 @@ export default function Home() {
             {/* Card 4 */}
             <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
                 <div className="flex-1 text-[#ede9e5]">
-                    <Link href = "/services/windows-assistant" className="text-2xl font-bold mb-2 text-blue-400 hover:underline">Music & Song Production</Link>
+                    <Link href = "/contact" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Music & Song Production</Link>
                     <h2 className="text-2xl font-bold mb-2"></h2>
                     <p className="text-zinc-200">End-to-end music creation — composition, mixing, and mastering — for indie artists, brands, or personal projects.</p>
                 </div>
