@@ -35,7 +35,7 @@ export default function Home() {
         
       >
         <div className="max-w-5xl w-full px-6">
-          <h2 className="text-4xl font-bold mb-10 text-center">Showcase</h2>
+          <h2 className="text-4xl font-bold text-center py-10">Showcase</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
             {/* Product Card 1 */}
             <div className="bg-zinc-900 rounded-lg shadow-lg p-12 flex flex-col items-center">

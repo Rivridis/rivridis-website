@@ -35,7 +35,7 @@ export default function Home() {
                     <div className="md:w-1/2 p-8 flex flex-col justify-center bg-[#ede9e5]">
                         <h3 className="text-xl font-semibold mb-4 text-[#2d2a26]">Get in Touch</h3>
                         <p className="mb-4 text-zinc-900">
-                            We'd love to hear from you! Whether you have a question about our services, pricing, or requests for custom version of the Assistant Client, our team is ready to answer all your questions.
+                            We'd love to hear from you! Whether you have a question about our services, pricing, or you need to order a service, contact us today. Our team is here to assist you.
                         </p>
                         <div className="mb-2">
                             <span className="font-medium text-[#2d2a26]">Email:</span> <a href="mailto:info@rivridis.com" className="text-zinc-900 hover:underline">info@rivridis.com</a>

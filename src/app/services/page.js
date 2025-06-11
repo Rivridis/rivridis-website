@@ -10,9 +10,9 @@ export default function Home() {
             <Navbar />
           </div>
 
-        <div className="flex flex-col gap-8 mt-16 px-4 py-6 md:px-24">
+        <div className="flex flex-col gap-8 mt-16 px-6 py-6 md:px-64">
             {/* Card 1 */}
-            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
+            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-16">
                 <div className="flex-1 text-[#ede9e5]">
                     <Link href = "/windows-assistant" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Windows Assistant</Link>
                     <p className="text-zinc-200">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.</p>
@@ -23,7 +23,7 @@ export default function Home() {
                 />
             </div>
             {/* Card 2 */}
-            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
+            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-16">
                 <div className="flex-1 text-[#ede9e5]">
                     <Link href = "/contact" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Software Development</Link>
                     <p className="text-zinc-200">Full-stack custom software solutions — from concept to deployment — for web, mobile, and desktop applications.</p>
@@ -34,7 +34,7 @@ export default function Home() {
                 />
             </div>
             {/* Card 3 */}
-            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
+            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-16">
                 <div className="flex-1 text-[#ede9e5]">
                     <Link href = "/contact" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Artwork and Design</Link>
                     <p className="text-zinc-200">Unique digital illustrations and branding art tailored for your personal or commercial use.</p>
@@ -45,7 +45,7 @@ export default function Home() {
                 />
             </div>
             {/* Card 4 */}
-            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-6">
+            <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-16">
                 <div className="flex-1 text-[#ede9e5]">
                     <Link href = "/contact" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Music & Song Production</Link>
                     <h2 className="text-2xl font-bold mb-2"></h2>

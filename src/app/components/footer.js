@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer id = "foot" className="bg-[#ede9e5] text-zinc-900 text-sm">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
       {/* Company Info */}
       <div>
         <h3 className="text-zinc-900 text-lg font-semibold mb-4">Rivridis</h3>
@@ -19,9 +19,20 @@ export default function Footer() {
         <h4 className="text-zinc-900 font-semibold mb-4">Quick Links</h4>
         <ul className="space-y-2">
           <li><a href="/" className="hover:text-zinc-500">Home</a></li>
-          <li><a href="/about" className="hover:text-zinc-500">About Us</a></li>
+          <li><a href="/windows-assistant" className="hover:text-zinc-500">Assistant Client</a></li>
           <li><a href="/services" className="hover:text-zinc-500">Services</a></li>
           <li><a href="/contact" className="hover:text-zinc-500">Contact</a></li>
+        </ul>
+      </div>
+
+      {/* Resources */}
+      <div>
+        <h4 className="text-zinc-900 font-semibold mb-4">Resources</h4>
+        <ul className="space-y-2">
+          <li><a href="/" className="hover:text-zinc-500">Blog</a></li>
+          <li><a href="/" className="hover:text-zinc-500">Stories</a></li>
+          <li><a href="/" className="hover:text-zinc-500">Music</a></li>
+      
         </ul>
       </div>
 

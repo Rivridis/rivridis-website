@@ -84,7 +84,7 @@ export default function Home() {
                         <li>✔ Extra QOL features</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-white transition">
-                        <a href="#">Subscribe</a>
+                        <a href="/contact">Subscribe</a>
                       </button>
                     </div>
                     {/* Enterprise Plan */}
@@ -98,7 +98,7 @@ export default function Home() {
                         <li>✔ Volume licensing</li>
                       </ul>
                       <button className="bg-[#2d2a26] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
-                        <a href="#">Contact Sales</a>
+                        <a href="/contact">Contact Sales</a>
                       </button>
                     </div>
                   </div>

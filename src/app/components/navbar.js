@@ -38,7 +38,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-4 text-sm">
                 <button>
-                    <Link href="#foot"><span className="text-[#ede9e5] cursor-pointer text-sm">Menu</span></Link>
+                    <Link href="#foot"><span className="text-[#ede9e5] cursor-pointer text-sm">Links</span></Link>
                 </button>
             </div>
         </nav>
