@@ -12,12 +12,12 @@ export default function Home() {
               <main className="flex flex-col items-center justify-center flex-1 px-4">
                 {/* Hero Section */}
                 <section id ="top" className="text-center max-w-2xl  min-h-screen items-center justify-center flex flex-col"> 
-                  <h1 className="text-7xl font-bold mb-4 text-[#2d2a26]">Assistant Client</h1>
+                  <h1 className="text-7xl font-bold mb-4 text-[#2d2a26]">Rivridis Assistant</h1>
                   <p className="text-2xl text-[#4b4845] mb-6">
                     Your all-in-one productivity tool for Windows. Download and run language models with full function calling support, and get more done with ease.
                   </p>
                   <Link href="#pricing" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
-                    Download Assistant Client for Windows
+                    Download for Windows - Nvidia
                   </Link>
                 </section>
                 {/* Features Section */}
@@ -56,7 +56,7 @@ export default function Home() {
 
 
                 {/* Pricing Section */}
-                <section id="pricing" className="w-full max-w-5xl mb-20">
+                <section id="pricing" className="w-full max-w-5xl mb-20 pt-15">
                   <h2 className="text-6xl font-bold text-center mb-8 text-[#2d2a26]">Pricing</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Free Plan */}
@@ -70,7 +70,7 @@ export default function Home() {
                         <li>✖ Server mode</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#d6d3ce] transition">
-                        <a href="#">Download</a>
+                        <a href="https://github.com/Rivridis/LLM-Assistant/releases/download/v2.0-stable/rivridis-assistant-nvidia.exe">Download</a>
                       </button>
                     </div>
                     {/* Pro Plan */}

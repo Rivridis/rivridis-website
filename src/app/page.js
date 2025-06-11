@@ -43,7 +43,7 @@ export default function Home() {
               <p className="text-base text-gray-300 mb-4 text-center">
                 A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
               </p>
-              <a href="https://github.com/Rivridis/LLM-Assistant" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on GitHub</a>
+              <a href="/windows-assistant" className="text-[#b6ad90] hover:underline">Download Now</a>
             </div>
             {/* Product Card 2 */}
             <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
