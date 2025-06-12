@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from 'next/server'
 const nodemailer = require('nodemailer');
 
 // Handles POST requests to /api
+export const runtime= 'edge' | 'nodejs'
 
 export async function POST(request) {
 
