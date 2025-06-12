@@ -3,8 +3,6 @@ const nodemailer = require('nodemailer');
 
 // Handles POST requests to /api
 
-export const runtime = 'edge'
-
 export async function POST(request) {
 
     const username = process.env.NEXT_PUBLIC_MY_EMAIL;
