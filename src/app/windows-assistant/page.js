@@ -14,7 +14,7 @@ export default function Home() {
                 <section id ="top" className="text-center max-w-2xl  min-h-screen items-center justify-center flex flex-col"> 
                   <h1 className="text-7xl font-bold mb-4 text-[#2d2a26]">Rivridis Assistant</h1>
                   <p className="text-2xl text-[#4b4845] mb-6">
-                    Run powerful local LLMs with function calling on your Windows PC. Code faster, search through PDFs, and boost productivity.
+                    Run powerful local LLMs with function calling on your Windows PC. Code faster, search through PDFs, and boost productivity using Google Search.
                   </p>
                   <Link href="#pricing" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
                     Download for Windows - Nvidia
@@ -49,7 +49,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <img src="/chat_ui.png" alt="Windows Assistant Client" className="w-full max-w-6xl mb-16 rounded-lg shadow-lg" />
+                <img src="/new_ui.png" alt="Windows Assistant Client" className="w-full max-w-6xl mb-16 rounded-lg shadow-lg" />
 
 
               
@@ -81,7 +81,7 @@ export default function Home() {
                         <li>✔ All Free features</li>
                         <li>✔ Server Support</li>
                         <li>✔ Multiple instances</li>
-                        <li>✖ Customized software</li>
+                        <li>✔ Free updates</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-white transition">
                         <a href="/contact">Subscribe</a>
@@ -94,10 +94,10 @@ export default function Home() {
                       <ul className="mb-6 text-[#4b4845]">
                         <li>✔ All Pro features</li>
                         <li>✔ Custom software</li>
-                        <li>✔ Dedicated support</li>
                         <li>✔ Volume Licensing</li>
+                        <li>✔ Customer support</li>
                       </ul>
-                      <button className="bg-[#2d2a26] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
+                      <button className="bg-[#2d2a26] text-white px-6 py-2.5 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
                         <a href="/contact">Contact Sales</a>
                       </button>
                     </div>
