@@ -14,7 +14,7 @@ export default function Home() {
                 <section id ="top" className="text-center max-w-2xl  min-h-screen items-center justify-center flex flex-col"> 
                   <h1 className="text-7xl font-bold mb-4 text-[#2d2a26]">Rivridis Assistant</h1>
                   <p className="text-2xl text-[#4b4845] mb-6">
-                    Your all-in-one productivity tool for Windows. Download and run language models with full function calling support, and get more done with ease.
+                    Run powerful local LLMs with function calling on your Windows PC. Code faster, search through PDFs, and boost productivity.
                   </p>
                   <Link href="#pricing" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
                     Download for Windows - Nvidia
@@ -35,12 +35,12 @@ export default function Home() {
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🔗</span>
                       <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Function Calling</h3>
-                      <p className="text-[#ede9e5]">Automate tasks and connect your favorite apps with robust function calling support.</p>
+                      <p className="text-[#ede9e5]">Use predefined functions, to get information easily. Purchase a Enterprise plan for custom functions.</p>
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🛠️</span>
-                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Custom Workflows</h3>
-                      <p className="text-[#ede9e5]">Create and manage personalized workflows to fit your unique needs.</p>
+                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">LLM Server (Pro)</h3>
+                      <p className="text-[#ede9e5]">Run the LLM server provided for maximum control and connect it directly to multiple app instances. Supports OpenAI API.</p>
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🔒</span>
@@ -49,7 +49,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <img src="/chat_ui.png" alt="Windows Assistant Client" className="w-full max-w-4xl mb-16 rounded-lg shadow-lg" />
+                <img src="/chat_ui.png" alt="Windows Assistant Client" className="w-full max-w-6xl mb-16 rounded-lg shadow-lg" />
 
 
               
@@ -64,10 +64,10 @@ export default function Home() {
                       <h3 className="font-semibold text-xl mb-2">Free</h3>
                       <p className="text-4xl font-bold mb-4">$0</p>
                       <ul className="mb-6 text-[#4b4845]">
-                        <li>✔ Basic function calling</li>
-                        <li>✖ Custom integrations</li>
-                        <li>✖ Priority support</li>
-                        <li>✖ Server mode</li>
+                        <li>✔ Predefined Functions</li>
+                        <li>✔ Chat, Code and PDF Mode</li>
+                        <li>✔ Open Source</li>
+                        <li>✖ Server Support</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#d6d3ce] transition">
                         <a href="https://github.com/Rivridis/LLM-Assistant/releases/download/v2.0-stable/rivridis-assistant-nvidia.exe">Download</a>
@@ -79,9 +79,9 @@ export default function Home() {
                       <p className="text-4xl font-bold mb-4">$9.99<span className="text-lg font-normal">/mo</span></p>
                       <ul className="mb-6">
                         <li>✔ All Free features</li>
-                        <li>✔ Free updates</li>
-                        <li>✔ Server mode</li>
-                        <li>✔ Extra QOL features</li>
+                        <li>✔ Server Support</li>
+                        <li>✔ Multiple instances</li>
+                        <li>✖ Customized software</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-white transition">
                         <a href="/contact">Subscribe</a>
@@ -93,9 +93,9 @@ export default function Home() {
                       <p className="text-4xl font-bold mb-4">Contact</p>
                       <ul className="mb-6 text-[#4b4845]">
                         <li>✔ All Pro features</li>
+                        <li>✔ Custom software</li>
                         <li>✔ Dedicated support</li>
-                        <li>✔ Custom integrations</li>
-                        <li>✔ Volume licensing</li>
+                        <li>✔ Volume Licensing</li>
                       </ul>
                       <button className="bg-[#2d2a26] text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
                         <a href="/contact">Contact Sales</a>
