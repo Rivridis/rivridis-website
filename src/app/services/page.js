@@ -10,7 +10,7 @@ export default function Home() {
             <Navbar />
           </div>
 
-        <div className="flex flex-col gap-8 mt-16 px-6 py-6 md:px-64">
+        <div className="flex flex-col gap-1 mt-16 px-6 py-6 md:px-64">
             {/* Card 1 */}
             <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-16">
                 <div className="flex-1 text-[#ede9e5]">

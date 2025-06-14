@@ -54,7 +54,7 @@ export default function Home() {
             <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
               <h3 className="text-2xl font-semibold mb-2">Stories</h3>
 
-              <a href="" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on website</a>
+              <a href="/stories" className="text-[#b6ad90] hover:underline">View on website</a>
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ export default function Footer() {
         <h4 className="text-zinc-900 font-semibold mb-4">Resources</h4>
         <ul className="space-y-2">
           <li><a href="#" className="hover:text-zinc-500">Blog</a></li>
-          <li><a href="#" className="hover:text-zinc-500">Stories</a></li>
+          <li><a href="/stories" className="hover:text-zinc-500">Stories</a></li>
           <li><a href="#" className="hover:text-zinc-500">Music</a></li>
       
         </ul>
