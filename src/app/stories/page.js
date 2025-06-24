@@ -30,7 +30,7 @@ export default function Home() {
                         <a
                             key={idx}
                             href={post.link}
-                            className="block bg-[#232326] rounded-lg shadow p-12 hover:bg-[#2d2a26] transition"
+                            className="block bg-zinc-800 rounded-lg shadow p-12 hover:bg-[#2d2a26] transition"
                         >
                             <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
                             <p className="mb-4 text-gray-300">{post.description}</p>

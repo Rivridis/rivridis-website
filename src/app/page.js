@@ -18,49 +18,44 @@ export default function Home() {
         <Navbar />
       </div>
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-24">
-        <header className="mb-8 text-center">
-          <HeroTitle />
+        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-24">
+          <header className="mb-8 text-center">
+            <HeroTitle />
 
-          <p className="text-lg text-gray-700">From Canvas to Code, crafting experiences that resonate.</p>
-        </header>
-      </div>
-      
-      <motion.div
-        className="w-full min-h-screen bg-zinc-800 text-[#ede9e5] flex flex-col items-center justify-center"
-        variants={slideUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+            <p className="text-lg text-gray-700">From Canvas to Code, crafting experiences that resonate.</p>
+          </header>
+        </div>
         
-      >
-        <div className="max-w-5xl w-full px-6">
-          <h2 className="text-4xl font-bold text-center py-10">Showcase</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
-            {/* Product Card 1 */}
-            <div className="bg-zinc-900 rounded-lg shadow-lg p-12 flex flex-col items-center">
-              <h3 className="text-2xl font-semibold mb-2">LLM-Assistant</h3>
-              <p className="text-base text-gray-300 mb-4 text-center">
-                A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
-              </p>
-              <a href="/windows-assistant" className="text-[#b6ad90] hover:underline">Download Now</a>
-            </div>
-            {/* Product Card 2 */}
-            <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-              <h3 className="text-2xl font-semibold mb-2">Artworks</h3>
-              <a href="https://www.instagram.com/rivridisart/" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on Instagram</a>
-            </div>
-            {/* Product Card 3 */}
-            <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-              <h3 className="text-2xl font-semibold mb-2">Stories</h3>
+        <div
+          className="w-full min-h-screen bg-zinc-800 text-[#ede9e5] flex flex-col items-center justify-center"
+        >
+          <div className="max-w-5xl w-full px-6">
+            <h2 className="text-4xl font-bold text-center py-10">Showcase</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
+          {/* Product Card 1 */}
+          <div className="bg-zinc-900 rounded-lg shadow-lg p-12 flex flex-col items-center">
+            <h3 className="text-2xl font-semibold mb-2">LLM-Assistant</h3>
+            <p className="text-base text-gray-300 mb-4 text-center">
+              A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
+            </p>
+            <a href="/windows-assistant" className="text-[#b6ad90] hover:underline">Download Now</a>
+          </div>
+          {/* Product Card 2 */}
+          <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+            <h3 className="text-2xl font-semibold mb-2">Artworks</h3>
+            <a href="https://www.instagram.com/rivridisart/" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on Instagram</a>
+          </div>
+          {/* Product Card 3 */}
+          <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+            <h3 className="text-2xl font-semibold mb-2">Stories</h3>
 
-              <a href="/stories" className="text-[#b6ad90] hover:underline">View on website</a>
+            <a href="/stories" className="text-[#b6ad90] hover:underline">View on website</a>
+          </div>
             </div>
           </div>
         </div>
-      </motion.div>
 
-      {/* Mission Section */}
+        {/* Mission Section */}
       <div className="w-full min-h-screen bg-zinc-900 text-[#ede9e5] flex flex-col items-center justify-center">
         <div className="max-w-5xl w-full px-6">
           <h2 className="text-4xl font-bold mb-10 text-center pt-6">Company Mission</h2>

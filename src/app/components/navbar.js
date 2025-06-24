@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     return (
-        <nav className="bg-zinc-800 px-6 py-2 flex items-center justify-between mx-auto mt-0 md:mt-4 max-w-[700px] md:rounded-md md:px-8">
+        <nav className="bg-zinc-800 px-6 py-2 flex items-center justify-between mx-auto mt-0 md:mt-4 max-w-[700px] md:rounded-md md:px-8 border border-[#ede9e5]">
             <div className="font-bold text-md text-[#ede9e5] md:mb-0 mb-0">
                 RIVRIDIS
             </div>
