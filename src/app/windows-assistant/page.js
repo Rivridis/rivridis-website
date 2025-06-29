@@ -30,22 +30,22 @@ export default function Home() {
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">⚡</span>
                       <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Local Language Models</h3>
-                      <p className="text-[#ede9e5]">Run advanced AI models directly on your Windows device for privacy and speed.</p>
+                      <p className="text-[#ede9e5]">Run Large Language models such as Llama or even your custom trained models directly on your Windows device for privacy and speed.</p>
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🔗</span>
                       <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Function Calling</h3>
-                      <p className="text-[#ede9e5]">Use predefined functions, to get information easily. Purchase a Enterprise plan for custom functions.</p>
+                      <p className="text-[#ede9e5]">Use predefined functions, to get information easily. We shall create custom functions and integrations as required for the customers of Enterprise Plan.</p>
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🛠️</span>
                       <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">LLM Server (Pro)</h3>
-                      <p className="text-[#ede9e5]">Run the LLM server provided for maximum control and connect it directly to multiple app instances. Supports OpenAI API.</p>
+                      <p className="text-[#ede9e5]">Run the LLM server provided for maximum control and connect it directly to multiple app instances in office environments. Supports OpenAI API.</p>
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🔒</span>
                       <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">Privacy First</h3>
-                      <p className="text-[#ede9e5]">Your data stays on your device. No cloud processing required.</p>
+                      <p className="text-[#ede9e5]">Your data stays private to your machine. We do not collect any data. Internet access is only required for the search function. </p>
                     </div>
                   </div>
                 </section>
