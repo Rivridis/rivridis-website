@@ -75,16 +75,16 @@ export default function Home() {
                     </div>
                     {/* Pro Plan */}
                     <div className="bg-[#2d2a26] text-white rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-[#ede9e5] scale-105">
-                      <h3 className="font-semibold text-xl mb-2">Pro</h3>
-                      <p className="text-4xl font-bold mb-4">$9.99<span className="text-lg font-normal">/mo</span></p>
+                      <h3 className="font-semibold text-xl mb-2">Free +</h3>
+                      <p className="text-4xl font-bold mb-4">$0</p>
                       <ul className="mb-6">
-                        <li>✔ All Free features</li>
-                        <li>✔ Server Support</li>
+                        <li>✔ OpenAI API Support</li>
                         <li>✔ Multiple instances</li>
-                        <li>✔ Free updates</li>
+                        <li>✖ Server not provided</li>
+                        <li>✖ installer not provided</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-white transition">
-                        <a href="/contact">Subscribe</a>
+                        <a href="https://github.com/Rivridis/Assistant-Client">Github</a>
                       </button>
                     </div>
                     {/* Enterprise Plan */}
@@ -92,9 +92,9 @@ export default function Home() {
                       <h3 className="font-semibold text-xl mb-2">Enterprise</h3>
                       <p className="text-4xl font-bold mb-4">Contact</p>
                       <ul className="mb-6 text-[#4b4845]">
-                        <li>✔ All Pro features</li>
+                        <li>✔ Installer provided</li>
                         <li>✔ Custom software</li>
-                        <li>✔ Volume Licensing</li>
+                        <li>✔ Server included</li>
                         <li>✔ Customer support</li>
                       </ul>
                       <button className="bg-[#2d2a26] text-white px-6 py-2.5 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
