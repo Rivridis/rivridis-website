@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Rivridis - Software Development, Artworks, Music & Stories",
-  description: "Rivridis Inc. is a creative studio specializing in software development, digital artworks, music production, and storytelling.",
+  title: "Rivridis Inc | Tech Studio",
+  description: "Rivridis Inc. is a technology studio specializing in software development, digital art, and storytelling. We blend technology and creativity to craft immersive digital experiences across platforms.",
 };
 
 export default function RootLayout({ children }) {

@@ -1,7 +1,12 @@
-"use client"
+
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import Link from 'next/link';
+
+export const metadata = {
+  title: 'Rivridis Services | Rivridis Inc',
+  description: 'Rivridis Services offers a range of software tools, as well as creative solutions, to enhance productivity.',
+};
 
 export default function Home() {
   return (
@@ -15,7 +20,7 @@ export default function Home() {
             {/* Card 1 */}
             <div className="flex flex-row items-center bg-zinc-800 rounded-xl shadow-lg p-16">
                 <div className="flex-1 text-[#ede9e5]">
-                    <Link href = "/windows-assistant" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Windows Assistant</Link>
+                    <Link href = "/windows-assistant" className="text-2xl font-bold mb-2 text-[#b6ad90] hover:underline">Rivridis Assistant</Link>
                     <p className="text-zinc-200">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.</p>
                 </div>
                 <img

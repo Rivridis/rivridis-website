@@ -2,6 +2,12 @@ import Navbar from "src/app/components/navbar.js"
 import Footer from "src/app/components/footer.js"
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Rivridis Assistant | Rivridis Inc',
+  description: 'Rivridis Assistant is an AI-powered tool designed to enhance productivity and streamline workflows.',
+};
+
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#ede9e5]">
