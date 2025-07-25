@@ -67,7 +67,7 @@ export default function Home() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Free Plan */}
                     <div className="bg-white rounded-xl shadow p-8 flex flex-col items-center border-2 border-[#ede9e5]">
-                      <h3 className="font-semibold text-xl mb-2">Free</h3>
+                      <h3 className="font-semibold text-xl mb-2">Free - Local</h3>
                       <p className="text-4xl font-bold mb-4">$0</p>
                       <ul className="mb-6 text-[#4b4845]">
                         <li>✔ Predefined Functions</li>
@@ -81,7 +81,7 @@ export default function Home() {
                     </div>
                     {/* Pro Plan */}
                     <div className="bg-[#2d2a26] text-white rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-[#ede9e5] scale-105">
-                      <h3 className="font-semibold text-xl mb-2">Free +</h3>
+                      <h3 className="font-semibold text-xl mb-2">Free - API</h3>
                       <p className="text-4xl font-bold mb-4">$0</p>
                       <ul className="mb-6">
                         <li>✔ OpenAI API Support</li>
