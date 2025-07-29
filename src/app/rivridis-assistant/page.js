@@ -22,8 +22,8 @@ export default function Home() {
                   <p className="text-2xl text-[#4b4845] mb-6">
                     Run powerful local LLMs with function calling on your Windows PC. Code faster, search through PDFs, and boost productivity using Google Search.
                   </p>
-                  <Link href="#pricing" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
-                    Download for Windows - Nvidia
+                  <Link href="/contact" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
+                    Contact Form
                   </Link>
                 </section>
                 {/* Features Section */}
