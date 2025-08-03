@@ -22,8 +22,8 @@ export default function Home() {
                   <p className="text-2xl text-[#4b4845] mb-6">
                     Run powerful local LLMs with function calling on your Windows PC. Code faster, search through PDFs, and boost productivity using Google Search.
                   </p>
-                  <Link href="/contact" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
-                    Contact Form
+                  <Link href="#pricing" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
+                    View Pricing
                   </Link>
                 </section>
                 {/* Features Section */}
@@ -65,10 +65,12 @@ export default function Home() {
                 <section id="pricing" className="w-full max-w-5xl mb-20 pt-15">
                   <h2 className="text-6xl font-bold text-center mb-8 text-[#2d2a26]">Pricing</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Free Plan */}
+                    {/* Basic Plan */}
                     <div className="bg-white rounded-xl shadow p-8 flex flex-col items-center border-2 border-[#ede9e5]">
-                      <h3 className="font-semibold text-xl mb-2">Free - Local</h3>
-                      <p className="text-4xl font-bold mb-4">$0</p>
+                      <h3 className="font-semibold text-xl mb-2">Basic</h3>
+                      <p className="text-4xl font-bold">$0
+                      </p>
+                      <p className="text-base text-gray-500 mb-4">per member / month</p>
                       <ul className="mb-6 text-[#4b4845]">
                         <li>✔ Predefined Functions</li>
                         <li>✔ Chat, Code and PDF Mode</li>
@@ -81,27 +83,30 @@ export default function Home() {
                     </div>
                     {/* Pro Plan */}
                     <div className="bg-[#2d2a26] text-white rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-[#ede9e5] scale-105">
-                      <h3 className="font-semibold text-xl mb-2">Free - API</h3>
-                      <p className="text-4xl font-bold mb-4">$0</p>
+                      <h3 className="font-semibold text-xl mb-2">Standard </h3>
+                      <p className="flex text-4xl font-bold justify-center contents-center">$20</p>
+                      <p className="text-base text-gray-500 mb-4">per member / month</p>
                       <ul className="mb-6">
                         <li>✔ OpenAI API Support</li>
-                        <li>✔ Multiple instances</li>
-                        <li>✖ Server not provided</li>
-                        <li>✖ installer not provided</li>
+                        <li>✔ Server and Installer provided</li>
+                        <li>✔ Commercial Use</li>
+                        <li>✔ Basic Integrations</li>
                       </ul>
                       <button className="bg-[#ede9e5] text-[#2d2a26] px-6 py-2 rounded-lg font-semibold shadow hover:bg-white transition">
-                        <a href="https://github.com/Rivridis/Assistant-Client">Github</a>
+                        <a href="https://forms.gle/dEDcouL6v3fAVryZ9">Get Started</a>
                       </button>
                     </div>
                     {/* Enterprise Plan */}
                     <div className="bg-white rounded-xl shadow p-8 flex flex-col items-center border-2 border-[#ede9e5]">
                       <h3 className="font-semibold text-xl mb-2">Enterprise</h3>
-                      <p className="text-4xl font-bold mb-4">Contact</p>
+                      <p className="text-4xl font-bold flex">Custom
+                      </p>
+                      <p className="text-base text-gray-500 mb-4">Custom Pricing</p>
                       <ul className="mb-6 text-[#4b4845]">
-                        <li>✔ Installer provided</li>
-                        <li>✔ Custom software</li>
-                        <li>✔ Server included</li>
-                        <li>✔ Customer support</li>
+                        <li>✔ Everything in Standard</li>
+                        <li>✔ Integration with internal tools</li>
+                        <li>✔ Fully branded builds</li>
+                        <li>✔ On-premise support</li>
                       </ul>
                       <button className="bg-[#2d2a26] text-white px-6 py-2.5 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
                         <a href="/contact">Contact Sales</a>
