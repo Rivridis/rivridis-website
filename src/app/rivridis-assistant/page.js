@@ -1,6 +1,7 @@
 import Navbar from "src/app/components/navbar.js"
 import Footer from "src/app/components/footer.js"
 import Link from 'next/link';
+import UseCasePanel from "src/app/components/UseCasePanel.js";
 
 export const metadata = {
   title: 'Rivridis Assistant | Rivridis Inc',
@@ -84,7 +85,7 @@ export default function Home() {
                     {/* Pro Plan */}
                     <div className="bg-[#2d2a26] text-white rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-[#ede9e5] scale-105">
                       <h3 className="font-semibold text-xl mb-2">Standard </h3>
-                      <p className="flex text-4xl font-bold justify-center contents-center">$20</p>
+                      <p className="flex text-4xl font-bold justify-center contents-center">$15</p>
                       <p className="text-base text-gray-500 mb-4">per member / month</p>
                       <ul className="mb-6">
                         <li>✔ OpenAI API Support</li>
@@ -114,6 +115,8 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
+
+                <UseCasePanel />
 
                 {/* Footer */}
                 <div className="w-full mt-auto">
