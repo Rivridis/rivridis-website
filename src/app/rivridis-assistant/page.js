@@ -46,7 +46,7 @@ export default function Home() {
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
                       <span className="text-3xl mb-2">🛠️</span>
-                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">LLM Server (Pro)</h3>
+                      <h3 className="font-semibold text-lg mb-2 text-[#ede9e5]">LLM Server</h3>
                       <p className="text-[#ede9e5]">Run the LLM server provided for maximum control and connect it directly to multiple app instances in office environments. Supports OpenAI API.</p>
                     </div>
                     <div className="bg-zinc-900 rounded-lg shadow p-6 flex flex-col items-center">
