@@ -25,7 +25,7 @@ export default function Home() {
                 </div>
                 <img
                     src="ai.png"
-                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700"
+                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
             {/* Card 2 */}
@@ -36,7 +36,7 @@ export default function Home() {
                 </div>
                 <img
                     src="soft.png"
-                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700"
+                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
             {/* Card 3 */}
@@ -47,7 +47,7 @@ export default function Home() {
                 </div>
                 <img
                     src="digital.png"
-                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700"
+                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
             {/* Card 4 */}
@@ -59,7 +59,7 @@ export default function Home() {
                 </div>
                 <img
                     src="music.png"
-                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700"
+                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
         </div>

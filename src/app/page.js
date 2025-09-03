@@ -35,30 +35,30 @@ export default function Home() {
               
               {/* Product Card 1 */}
               <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
-                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2">LLM-Assistant</h3>
-                <p className="text-base text-[#ede9e5] mb-4 text-center">
+                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2 text-center">LLM-Assistant</h3>
+                <p className="text-base text-[#ede9e5] mb-4 text-center hidden md:block">
                   A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
                 </p>
                 <a 
-                href="https://github.com/Rivridis/LLM-Assistant" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition">View Source</a>
+                href="https://github.com/Rivridis/LLM-Assistant" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition text-center">View Source</a>
               </div>
               {/* Product Card 2 */}
               <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
-                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2">Rivridis Reader</h3>
-                <p className="text-base text-[#ede9e5] mb-4 text-center">
+                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2 text-center">Rivridis Reader</h3>
+                <p className="text-base text-[#ede9e5] mb-4 text-center hidden md:block">
                   A full stack app based on the QT framework, that can load and display EPUB files that are present in the system. It also has the ability to remember the reading position of each book.
                 </p>
                 <a 
-                href="https://github.com/Rivridis/Ebook-Reader" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition">View Source</a>
+                href="https://github.com/Rivridis/Ebook-Reader" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition text-center">View Source</a>
               </div>
               {/* Product Card 3 */}
               <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
-                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2">Media Guesser</h3>
-                <p className="text-base text-[#ede9e5] mb-4 text-center">
+                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2 text-center">Media Guesser</h3>
+                <p className="text-base text-[#ede9e5] mb-4 text-center hidden md:block">
                   A react and nextjs based web app that displays screenshots from movies, and asks the user to guess which movie is the screenshot from. The user is given 5 tries to guess correctly, before the next screenshot is shown.
                 </p>
                 <a 
-                href="https://github.com/Rivridis/MediaGuesser" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition">View Source</a>
+                href="https://github.com/Rivridis/MediaGuesser" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition text-center">View Source</a>
               </div>
          
           </div>
@@ -87,7 +87,7 @@ export default function Home() {
 
   <section className="bg-zinc-800 text-[#ede9e5] w-full min-h-screen flex items-center justify-center">
   <div className="max-w-7xl mx-auto py-12">
-    <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#ede9e5] flex items-center justify-center">
+    <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#ede9e5] text-center">
       Tailored Services to Match Your Needs
     </h2>
 
