@@ -32,7 +32,7 @@ export default function Home() {
                             href={post.link}
                             className="block bg-zinc-800 rounded-lg shadow p-12 hover:bg-[#2d2a26] transition"
                         >
-                            <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+                            <h2 className="text-2xl text-[#b6ad90]  font-bold mb-2">{post.title}</h2>
                             <p className="mb-4 text-gray-300">{post.description}</p>
                             <div className="text-sm text-gray-400">
                                 By <span className="font-medium">{post.author}</span> &middot; {post.date}

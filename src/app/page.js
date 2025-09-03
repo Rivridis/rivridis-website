@@ -29,62 +29,69 @@ export default function Home() {
         <div
           className="w-full min-h-screen bg-zinc-800 text-[#ede9e5] flex flex-col items-center justify-center"
         >
-          <div className="max-w-5xl w-full px-6">
+          <div className="max-w-5xl w-full px-6 py-16">
             <h2 className="text-4xl font-bold text-center py-10">Showcase</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
-          {/* Product Card 1 */}
-          <div className="bg-zinc-900 rounded-lg shadow-lg p-12 flex flex-col items-center">
-            <h3 className="text-2xl font-semibold mb-2">LLM-Assistant</h3>
-            <p className="text-base text-gray-300 mb-4 text-center">
-              A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
-            </p>
-            <a href="/windows-assistant" className="text-[#b6ad90] hover:underline">Download Now</a>
+            <div className="flex flex-col items-center justify-center space-y-8">
+              
+              {/* Product Card 1 */}
+              <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
+                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2">LLM-Assistant</h3>
+                <p className="text-base text-[#ede9e5] mb-4 text-center">
+                  A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
+                </p>
+                <a 
+                href="https://github.com/Rivridis/LLM-Assistant" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition">View Source</a>
+              </div>
+              {/* Product Card 2 */}
+              <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
+                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2">Rivridis Reader</h3>
+                <p className="text-base text-[#ede9e5] mb-4 text-center">
+                  A full stack app based on the QT framework, that can load and display EPUB files that are present in the system. It also has the ability to remember the reading position of each book.
+                </p>
+                <a 
+                href="https://github.com/Rivridis/Ebook-Reader" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition">View Source</a>
+              </div>
+              {/* Product Card 3 */}
+              <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
+                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2">Media Guesser</h3>
+                <p className="text-base text-[#ede9e5] mb-4 text-center">
+                  A react and nextjs based web app that displays screenshots from movies, and asks the user to guess which movie is the screenshot from. The user is given 5 tries to guess correctly, before the next screenshot is shown.
+                </p>
+                <a 
+                href="https://github.com/Rivridis/MediaGuesser" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition">View Source</a>
+              </div>
+         
           </div>
-          {/* Product Card 2 */}
-          <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-            <h3 className="text-2xl font-semibold mb-2">Artworks</h3>
-            <a href="https://www.instagram.com/rivridisart/" target="_blank" rel="noopener noreferrer" className="text-[#b6ad90] hover:underline">View on Instagram</a>
-          </div>
-          {/* Product Card 3 */}
-          <div className="bg-zinc-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-            <h3 className="text-2xl font-semibold mb-2">Stories</h3>
-
-            <a href="/stories" className="text-[#b6ad90] hover:underline">View on website</a>
-          </div>
-            </div>
           </div>
         </div>
 
-        {/* Mission Section */}
+        {/* Skills Section */}
       <div className="w-full min-h-screen bg-zinc-900 text-[#ede9e5] flex flex-col items-center justify-center">
         <div className="max-w-5xl w-full px-6">
-          <h2 className="text-4xl font-bold mb-10 text-center pt-6">Company Mission</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-12">
-            {/* Product Card 1 */}
-            <div className="bg-zinc-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <h3 className="text-2xl font-semibold mb-2">Our Purpose</h3>
-              <p className="text-base text-gray-300 mb-4 text-center">
-                Rivridis Inc. fuses innovative software development with captivating artistic expression. We're here to ignite imagination and drive progress, transforming bold ideas into impactful, enriching experiences.
-              </p>
-            </div>
-            {/* Product Card 2 */}
-            <div className="bg-zinc-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
-              <h3 className="text-2xl font-semibold mb-2">Our Vision</h3>
-              <p className="text-base text-gray-300 mb-4 text-center">
-                Our vision is to empower individuals and businesses, transforming their boldest ideas into impactful, enriching experiences. We craft the future where technology amplifies human creativity, building intuitive, beautiful, and powerful tools that inspire new possibilities in art, music, and digital innovation.
-              </p>
-            </div>
+          <h2 className="text-4xl font-bold mb-10 text-center pt-6">Technologies Used</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 p-12">
+
+            <img src="skills/python.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
+            <img src="skills/react.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
+            <img src="skills/QT.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
+            <img src="skills/torch.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
+            <img src="skills/cpp.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
+
+
+  
+      
           </div>
+          
         </div>
       </div>
 
-  <section className="bg-zinc-800 text-[#ede9e5] py-12 px-4">
+  <section className="bg-zinc-800 text-[#ede9e5] w-full min-h-screen flex items-center justify-center">
   <div className="max-w-7xl mx-auto py-12">
-    <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#ede9e5]">
+    <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#ede9e5] flex items-center justify-center">
       Tailored Services to Match Your Needs
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="flex flex-col md:flex-row gap-8 p-6">
       
       {/* LLM Client App */}
       <div className="bg-[#eae5e2] text-black p-6 rounded-lg shadow">
@@ -100,25 +107,26 @@ export default function Home() {
         <img src="/soft.png" alt="Software Dev" className="mb-4 mx-auto w-12 h-12" />
         <h3 className="text-lg font-semibold mb-2">Software Development</h3>
         <p className="text-sm text-gray-800">
-          Full-stack custom software solutions — from concept to deployment — for web, mobile, and desktop applications.
+          Full-stack custom software solutions, from concept to deployment, for web, mobile, and desktop applications.
         </p>
       </div>
 
-      {/* Custom Artwork */}
-      <div className="bg-[#eae5e2] text-black p-6 rounded-lg shadow">
-        <img src="/digital.png" alt="Artwork" className="mb-4 mx-auto w-12 h-12" />
-        <h3 className="text-lg font-semibold mb-2">Artwork</h3>
+      {/* Music & Song Production */}
+      <div className="bg-[#eae5e2] text-black  p-6 rounded-lg shadow">
+        <img src="/digital.png" alt="Music" className="mb-4 mx-auto w-12 h-12" />
+        <h3 className="text-lg font-semibold mb-2">Digital Artwork</h3>
         <p className="text-sm text-gray-800">
-          Unique digital illustrations and branding art tailored for your personal or commercial use.
+          Unique digital art draw using procreate, for your personal or commercial use. We also do 3D artwork using Blender 3D.
         </p>
       </div>
+
 
       {/* Music & Song Production */}
       <div className="bg-[#eae5e2] text-black  p-6 rounded-lg shadow">
         <img src="/music.png" alt="Music" className="mb-4 mx-auto w-12 h-12" />
         <h3 className="text-lg font-semibold mb-2">Music & Song Production</h3>
         <p className="text-sm text-gray-800">
-          End-to-end music creation — composition, mixing, and mastering — for indie artists, brands, or personal projects.
+          End-to-end music creation, composition, mixing, and mastering, for indie artists, brands, or personal projects.
         </p>
       </div>
     </div>
@@ -129,7 +137,7 @@ export default function Home() {
         href="/services"
         className="inline-block bg-[#b6ad90] text-black text-sm font-medium px-6 py-3 rounded-md shadow hover:bg-[#ede9e5] transition duration-300"
       >
-        Let’s Work Together
+        Let's Work Together
       </a>
     </div>
   </div>
