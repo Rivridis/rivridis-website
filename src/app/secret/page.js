@@ -6,7 +6,7 @@ export default function ProtectedPage() {
   const [input, setInput] = useState("");
   const [authorized, setAuthorized] = useState(false);
 
-  const PASSWORD_HASH = "515b168eba6513753671389b36b732f3e7e90b66421e89e64acf307cbe24187d";
+  const PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ export default function ProtectedPage() {
     if (hash === PASSWORD_HASH) {
       setAuthorized(true);
     } else {
-      alert("Wrong password. Try again.");
+      alert("Access Denied");
     }
   };
 
@@ -46,8 +46,8 @@ export default function ProtectedPage() {
 
   return (
     <div className="p-6 min-h-screen bg-[#ede9e5]">
-      <h1 className="text-2xl font-bold mb-4">Holy timewaste 🚀</h1>
-      <p>You are useless. Touch grass.</p>
+      <h1 className="text-2xl font-bold mb-4">Secret Page</h1>
+      <p>Thanks for Visiting.</p>
     </div>
   );
 }
