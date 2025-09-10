@@ -98,7 +98,7 @@ export default function Home() {
         <img src="/ai.png" alt="LLM App" className="mb-4 mx-auto w-12 h-12" />
         <h3 className="text-lg font-semibold mb-2">LLM Client App</h3>
         <p className="text-sm text-gray-800">
-          Build conversational AI experiences using custom LLM apps. Secure, scalable, and tailored to your business logic.
+          Run open source LLMs on your windows device with function calling. We provide custom solutions as well.
         </p>
       </div>
 
