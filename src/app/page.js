@@ -76,9 +76,6 @@ export default function Home() {
             <img src="skills/QT.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
             <img src="skills/torch.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
             <img src="skills/cpp.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
-
-
-  
       
           </div>
           
@@ -134,7 +131,7 @@ export default function Home() {
        {/* CTA Button */}
     <div className="text-center pt-16">
       <a
-        href="/services"
+        href="/contact"
         className="inline-block bg-[#b6ad90] text-black text-sm font-medium px-6 py-3 rounded-md shadow hover:bg-[#ede9e5] transition duration-300"
       >
         Let's Work Together

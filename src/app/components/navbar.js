@@ -13,7 +13,7 @@ export default function Navbar() {
             <div className="flex-1 flex justify-center">
                 <div className="flex gap-4 hidden md:flex">
                     <Link href="/"><span className="text-[#ede9e5] cursor-pointer text-sm">Home</span></Link>
-                    <Link href="/services"><span className="text-[#ede9e5] cursor-pointer text-sm">Services</span></Link>
+                    <Link href="/products"><span className="text-[#ede9e5] cursor-pointer text-sm">Products</span></Link>
 
                     <div className="relative">
                         <button
