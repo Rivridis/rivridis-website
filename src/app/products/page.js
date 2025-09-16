@@ -36,7 +36,7 @@ export default function Home() {
                     <p className="text-zinc-200">Fireworks is a cozy multiplayer world where friends can hang out, explore, and play together. Build spaces, dive into dungeons, join PvP mini-games, or just relax in a vibrant city hub, your new virtual hangout beyond chat apps.</p>
                 </div>
                 <img
-                    src="rocketlogo.png"
+                    src="fireworkslogo.png"
                     className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
