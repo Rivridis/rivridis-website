@@ -1,7 +1,7 @@
 import Navbar from "src/app/components/navbar.js"
 import Footer from "src/app/components/footer.js"
 import Link from 'next/link';
-import UseCasePanel from "src/app/components/UseCasePanel.js";
+
 
 export const metadata = {
   title: 'Rivridis Assistant | Rivridis Inc',

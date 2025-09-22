@@ -7,9 +7,9 @@ export default function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     return (
         <nav className="bg-zinc-800 px-6 py-2 flex items-center justify-between mx-auto mt-0 md:mt-4 max-w-[700px] md:rounded-md md:px-8 border border-[#ede9e5]">
-            <div className="font-bold text-md text-[#ede9e5] md:mb-0 mb-0">
+            <Link href="/" className="font-bold text-md text-[#ede9e5] md:mb-0 mb-0">
                 RIVRIDIS
-            </div>
+            </Link>
             <div className="flex-1 flex justify-center">
                 <div className="flex gap-4 hidden md:flex">
                     <Link href="/"><span className="text-[#ede9e5] cursor-pointer text-sm">Home</span></Link>
@@ -38,7 +38,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-4 text-sm">
                 <button>
-                    <Link href="#foot"><span className="text-[#ede9e5] cursor-pointer text-sm">Links</span></Link>
+                    <Link href="/links"><span className="text-[#ede9e5] cursor-pointer text-sm">Links</span></Link>
                 </button>
             </div>
         </nav>
