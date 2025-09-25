@@ -9,7 +9,7 @@ export default function Page() {
                 <Navbar />
             </div>
 
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center px-6">
                 <h1 className="text-4xl font-bold mb-8 mt-25 text-[#2d2a26]">Links</h1>
                 <div className="space-y-4 w-full max-w-xl text-center">
                     <div className="bg-white rounded-lg shadow p-5">
