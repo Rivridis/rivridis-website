@@ -11,15 +11,15 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#ede9e5]">
+    <div className="flex flex-col min-h-screen bg-linear-to-t to-[#0C1016] from-[#6885a6]">
               {/* Navbar */}
               <div className="w-full fixed top-0 left-0 z-50">
                 <Navbar />
               </div>
-              <main className="flex flex-col items-center justify-center flex-1 px-4">
-                        <section id ="top" className="text-center max-w-2xl  min-h-screen items-center justify-center flex flex-col"> 
-                          <h1 className="text-7xl font-bold mb-4 text-[#2d2a26]">Rivridis Assistant</h1>
-                          <p className="text-2xl text-[#4b4845] mb-6">
+              <main className="flex flex-col items-center justify-center flex-1">
+                        <section id ="top" className="text-center max-w-3xl  min-h-screen items-center justify-center flex flex-col"> 
+                          <h1 className="text-7xl mb-4 text-[#ede9e5]">RIVRIDIS ASSISTANT</h1>
+                          <p className="text-2xl text-[#ede9e5] mb-6">
                           Run powerful local LLMs with function calling on your PC. Our agency also provides custom AI Agents tailored to your business needs. Free for personal use.
                           </p>
                           <Link href="https://github.com/Rivridis/Assistant-Client" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
@@ -28,8 +28,8 @@ export default function Home() {
                         </section>
                         {/* Features Section */}
                 <section className="text-center max-w-2xl mb-16 min-h-screen items-center justify-center flex flex-col">
-                  <h2 className="text-6xl font-bold mb-4 text-[#2d2a26]">Features</h2>
-                  <p className="text-2xl text-[#4b4845] mb-8">
+                  <h2 className="text-6xl  mb-4 text-[#ede9e5]">FEATURES</h2>
+                  <p className="text-2xl text-[#ede9e5] mb-8">
                     Unlock powerful capabilities designed to boost your productivity and streamline your workflow.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full">
