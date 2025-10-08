@@ -12,136 +12,133 @@ const slideUp = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#ede9e5]">
+    <div className="flex flex-col min-h-screen">
+      
       {/* Navbar */}
+      <div className="hidden lg:block lg:fixed lg:top-1/2 lg:left-15 lg:-translate-y-1/2 lg:-translate-x-1/2">
+        <p className="text-[#ede9e5] text-sm font-light -rotate-90 ">
+          <span>GAMING</span>
+          <span className="ml-10">SOFTWARE</span>
+          <span className="ml-10">CREATIVE DESIGN</span>
+        </p>
+      </div>
       <div className="w-full fixed top-0 left-0 z-50">
         <Navbar />
       </div>
-      {/* Hero Section */}
-        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-24">
+        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-16 bg-[url('/hero.png')] bg-cover bg-center">
           <header className="mb-8 text-center">
-            <HeroTitle />
+            <p className="text-5xl md:text-8xl text-[#0C1016] mb-4">RIVRIDIS STUDIO</p>
 
-            <p className="text-lg text-gray-700">From Canvas to Code, crafting experiences that resonate.</p>
+            <p className="text-xl md:text-2xl text-[#ede9e5]">CRAFTING DIGITAL EXPERIENCES THAT RESONATE <br /> WITH LOVE</p>
           </header>
         </div>
         
-        <div
-          className="w-full min-h-screen bg-zinc-800 text-[#ede9e5] flex flex-col items-center justify-center"
-        >
-          <div className="max-w-5xl w-full px-6 py-16">
-            <h2 className="text-4xl font-bold text-center py-10">Showcase</h2>
-            <div className="flex flex-col items-center justify-center space-y-8">
-              
-              {/* Product Card 1 */}
-              <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
-                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2 text-center">LLM-Assistant</h3>
-                <p className="text-base text-[#ede9e5] mb-4 text-center hidden md:block">
-                  A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.
-                </p>
-                <a 
-                href="https://github.com/Rivridis/LLM-Assistant" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition text-center">View Source</a>
-              </div>
-              {/* Product Card 2 */}
-              <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
-                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2 text-center">Rivridis Reader</h3>
-                <p className="text-base text-[#ede9e5] mb-4 text-center hidden md:block">
-                  A full stack app based on the QT framework, that can load and display EPUB files that are present in the system. It also has the ability to remember the reading position of each book.
-                </p>
-                <a 
-                href="https://github.com/Rivridis/Ebook-Reader" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition text-center">View Source</a>
-              </div>
-              {/* Product Card 3 */}
-              <div className="bg-zinc-900 rounded-lg shadow-lg p-18 w-3/4 flex flex-col items-center">
-                <h3 className="text-2xl text-[#b6ad90] font-semibold mb-2 text-center">Media Guesser</h3>
-                <p className="text-base text-[#ede9e5] mb-4 text-center hidden md:block">
-                  A react and nextjs based web app that displays screenshots from movies, and asks the user to guess which movie is the screenshot from. The user is given 5 tries to guess correctly, before the next screenshot is shown.
-                </p>
-                <a 
-                href="https://github.com/Rivridis/MediaGuesser" className="bg-[#b6ad90] px-6 py-2 rounded-sm shadow-md hover:bg-[#a89f7f] text-zinc-900 transition text-center">View Source</a>
-              </div>
-         
+        {/* About Section */}
+        <section className="min-h-screen bg-[#0C1016] text-gray-200 flex px-8 py-16 items-center justify-center">
+        <div className="max-w-5xl space-y-6 ">
+          <div>
+            <p className="text-sm text-[#ede9e5] tracking-widest">- ABOUT US -</p>
+            <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
+              BUILDING DIGITAL EXPERIENCES THAT INSPIRE
+            </h2>
           </div>
+
+          <div className="space-y-4 leading-relaxed text-xl md:text-2xl text-[#ede9e5]">
+            <p>
+              At Rivridis Studio, we craft digital experiences that blend creativity
+              with technology. From sleek Windows applications to immersive web
+              platforms and games, we bring ideas to life with passion and precision.
+            </p>
+
+            <p>
+              Our mission is to build software that feels as good as it performs.
+              We focus on seamless design, solid performance, and user-centered
+              development that makes every interaction meaningful.
+            </p>
+
+            <p>
+              Driven by innovation and guided by care, we turn vision into reality.
+              At Rivridis Studio, every line of code is written with love,
+              because great digital experiences start with heart.
+            </p>
+          </div>
+
+          <div>
+            <a
+              href="/contact"
+              className="text-[#B6AD90] font-medium hover:text-[#657994] transition-colors"
+            >
+              CONTACT US
+            </a>
           </div>
         </div>
+      </section>
 
-        {/* Skills Section */}
-      <div className="w-full min-h-screen bg-zinc-900 text-[#ede9e5] flex flex-col items-center justify-center">
-        <div className="max-w-5xl w-full px-6">
-          <h2 className="text-4xl font-bold mb-10 text-center pt-6">Technologies Used</h2>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 p-12">
-
-            <img src="skills/python.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
-            <img src="skills/react.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
-            <img src="skills/QT.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
-            <img src="skills/torch.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
-            <img src="skills/cpp.png" className="rounded-lg h-32 w-32 flex flex-col items-center justify-center" />
-      
+      {/*Portfolio Section */}
+      <section className="min-h-screen bg-[#0C1016] text-gray-200 flex px-8 py-16 items-center justify-center">
+        <div className="w-5xl space-y-6 flex flex-col ">
+          <div>
+            <p className="text-sm text-[#ede9e5] tracking-widest">- PORTFOLIO -</p>
+            <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
+              OUR WORK SPEAKS FOR ITSELF
+            </h2>
           </div>
-          
+          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+            {/* Card 1 */}
+            <div className="flex-1 bg-[#ede9e5] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
+              <h2 className="text-2xl mb-3">LLM ASSISTANT</h2>
+              <p className="text-2xl">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and be an assistant</p>
+              <a href="https://github.com/Rivridis/Assistant-Client" className="mt-8 inline-block text-[#887742] text-xl px-4 py-2 rounded-md hover:text-[#657994] transition-colors">
+                VIEW SOURCE
+              </a>
+            </div>
+
+            {/* Card 2 */}
+            <div className="flex-1 bg-[#ede9e5] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
+              <h2 className="text-2xl mb-3">RIVRIDIS READER</h2>
+              <p className="text-2xl">A full stack app based on the QT framework, that can load and display EPUB files that are present in the system</p>
+              <a href="https://github.com/Rivridis/Ebook-Reader" className="mt-8 inline-block text-[#887742] text-xl px-4 py-2 rounded-md hover:text-[#657994] transition-colors">
+                VIEW SOURCE
+              </a>
+            </div>
+
+            {/* Card 3 */}
+            <div className="flex-1 bg-[#ede9e5] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
+              <h2 className="text-2xl mb-3">MEDIA GUESSER</h2>
+              <p className="text-2xl">A react and nextjs based web app that displays screenshots from movies, and asks the user to guess the movie</p>
+              <a href="https://github.com/Rivridis/MediaGuesser" className="mt-8 inline-block text-[#887742] text-xl px-4 py-2 rounded-md hover:text-[#657994] transition-colors">
+                VIEW SOURCE
+              </a>
+            </div>
         </div>
-      </div>
+        </div>
+      </section>
 
-  <section className="bg-zinc-800 text-[#ede9e5] w-full min-h-screen flex items-center justify-center">
-  <div className="max-w-7xl mx-auto py-12">
-    <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#ede9e5] text-center">
-      Tailored Services to Match Your Needs
-    </h2>
+       {/* Collaboration Section */}
+        <section className="min-h-screen bg-linear-to-t to-[#0C1016] from-[#5C7694] text-gray-200 flex px-8 py-16 items-center justify-center">
+        <div className="max-w-5xl space-y-6 ">
+          <div>
+            <p className="text-sm text-[#ede9e5] tracking-widest">- COLLABORATION -</p>
+            <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
+              LET'S BUILD TOGETHER
+            </h2>
+          </div>
 
-    <div className="flex flex-col md:flex-row gap-8 p-6">
-      
-      {/* LLM Client App */}
-      <div className="bg-[#eae5e2] text-black p-6 rounded-lg shadow">
-        <img src="/ai.png" alt="LLM App" className="mb-4 mx-auto w-12 h-12" />
-        <h3 className="text-lg font-semibold mb-2">LLM Client App</h3>
-        <p className="text-sm text-gray-800">
-          Run open source LLMs on your windows device with function calling. We provide custom solutions as well.
-        </p>
-      </div>
+          <div className="space-y-4 leading-relaxed text-xl md:text-2xl text-[#ede9e5] md:py-32">
+            <p className="md:text-center md:px-32">
+              We occasionally collaborate on projects that inspire us, from innovative apps to creative game ideas.
+            </p>
 
-      {/* Software Development */}
-      <div className="bg-[#eae5e2] text-black p-6 rounded-lg shadow">
-        <img src="/soft.png" alt="Software Dev" className="mb-4 mx-auto w-12 h-12" />
-        <h3 className="text-lg font-semibold mb-2">Software Development</h3>
-        <p className="text-sm text-gray-800">
-          Full-stack custom software solutions, from concept to deployment, for web, mobile, and desktop applications.
-        </p>
-      </div>
+            <p className="md:text-center text-[#B6AD90] font-medium hover:text-[#657994] transition-colors">
+              <a href="/contact">Have an idea? Let's talk</a>
+            </p>
 
-      {/* Music & Song Production */}
-      <div className="bg-[#eae5e2] text-black  p-6 rounded-lg shadow">
-        <img src="/digital.png" alt="Music" className="mb-4 mx-auto w-12 h-12" />
-        <h3 className="text-lg font-semibold mb-2">Digital Artwork</h3>
-        <p className="text-sm text-gray-800">
-          Unique digital art draw using procreate, for your personal or commercial use. We also do 3D artwork using Blender 3D.
-        </p>
-      </div>
+  
+          </div>
+        </div>
+      </section>
 
-
-      {/* Music & Song Production */}
-      <div className="bg-[#eae5e2] text-black  p-6 rounded-lg shadow">
-        <img src="/music.png" alt="Music" className="mb-4 mx-auto w-12 h-12" />
-        <h3 className="text-lg font-semibold mb-2">Music & Song Production</h3>
-        <p className="text-sm text-gray-800">
-          End-to-end music creation, composition, mixing, and mastering, for indie artists, brands, or personal projects.
-        </p>
-      </div>
-    </div>
-    
-       {/* CTA Button */}
-    <div className="text-center pt-16">
-      <a
-        href="/contact"
-        className="inline-block bg-[#b6ad90] text-black text-sm font-medium px-6 py-3 rounded-md shadow hover:bg-[#ede9e5] transition duration-300"
-      >
-        Let's Work Together
-      </a>
-    </div>
-  </div>
-</section>
-
-
-      <Footer />
+    <Footer />
   </div>
   );
 }

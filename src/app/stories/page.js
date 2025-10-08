@@ -8,8 +8,8 @@ export default function Home() {
             <div className="w-full fixed top-0 left-0 z-50">
                 <Navbar />
             </div>
-            <section className="w-full max-w-6xl mx-auto pt-25 px-4 pb-16 text-[#ede9e5]"> 
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#2d2a26]"> Stories 📖</h1>
+            <section className="w-full max-w-6xl mx-auto pt-25 px-16 pb-16 text-[#ede9e5]"> 
+                <h1 className="text-4xl md:text-5xl mb-6 text-[#2d2a26]">STORIES</h1>
                 <div className="space-y-1">
                     {[
                         {
