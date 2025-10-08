@@ -4,7 +4,7 @@ import Footer from "src/app/components/footer.js"
 
 export default function Page() {
     return (
-        <main className="bg-[#ede9e5] min-h-screen">
+        <main className="bg-[#5C7694] min-h-screen">
             <div className="w-full fixed top-0 left-0 z-50">
                 <Navbar />
             </div>
