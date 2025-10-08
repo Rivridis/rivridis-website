@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-linear-to-t to-[#0C1016] from-[#6885a6]">
+    <div className="flex flex-col min-h-screen bg-linear-to-t to-[#0C1016] from-[#9bb1cf]">
               {/* Navbar */}
               <div className="w-full fixed top-0 left-0 z-50">
                 <Navbar />
@@ -22,7 +22,7 @@ export default function Home() {
                           <p className="text-2xl text-[#ede9e5] mb-6">
                           Run powerful local LLMs with function calling on your PC. Our agency also provides custom AI Agents tailored to your business needs. Free for personal use.
                           </p>
-                          <Link href="https://github.com/Rivridis/Assistant-Client" className="inline-block bg-[#2d2a26] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#4b4845] transition">
+                          <Link href="https://github.com/Rivridis/Assistant-Client" className="inline-block bg-[#889cb8] text-#1a1a1a px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#a4976e] transition">
                           Download for Windows
                           </Link>
                         </section>
