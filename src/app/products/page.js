@@ -17,9 +17,9 @@ export default function Home() {
           </div>
 
         <div className="w-full max-w-6xl mx-auto pt-25 px-16 pb-16 text-[#ede9e5] space-y-1">
-           <h1 className="text-4xl md:text-5xl mb-6 text-[#2d2a26]">PRODUCTS</h1>
+           <h1 className="text-4xl md:text-5xl mb-6 text-[#0C1016]">PRODUCTS</h1>
             {/* Card 1 */}
-            <a className="bg-zinc-800 rounded-lg shadow p-10 hover:bg-[#2d2a26] transition flex flex-row items-center" href="/rivridis-assistant">
+            <a className="bg-[#0C1016] rounded-lg shadow p-10 hover:bg-[#2d2a26] transition flex flex-row items-center" href="/rivridis-assistant">
                 <div className="flex-1 text-[#ede9e5]">
                     <div className="text-2xl font-bold mb-2 text-[#b6ad90]">Rivridis Assistant</div>
                     <p className="text-zinc-200">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.</p>
@@ -29,9 +29,8 @@ export default function Home() {
                     className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
-            
-             {/* Card 2 */}
-            <a className="bg-zinc-800 rounded-lg shadow p-10 hover:bg-[#2d2a26] transition flex flex-row items-center" href="/fireworks">
+            {/* Card 2 */}
+            <a className="bg-[#0C1016] rounded-lg shadow p-10 hover:bg-[#2d2a26] transition flex flex-row items-center" href="/fireworks">
                 <div className="flex-1 text-[#ede9e5]">
                     <div className="text-2xl font-bold mb-2 text-[#b6ad90]">Project Fireworks</div>
                     <p className="text-zinc-200">Fireworks is a cozy multiplayer world where friends can hang out, explore, and play together. Build spaces, dive into dungeons, join PvP mini-games, or just relax in a vibrant city hub, your new virtual hangout beyond chat apps.</p>

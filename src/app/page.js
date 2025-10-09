@@ -66,7 +66,7 @@ export default function Home() {
           <div>
             <a
               href="/contact"
-              className="text-[#B6AD90] font-medium hover:text-[#338bffff] transition-colors"
+              className="text-[#B6AD90] font-medium hover:text-[#006eff] transition-colors"
             >
               CONTACT US
             </a>
@@ -88,7 +88,7 @@ export default function Home() {
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
               <h2 className="text-2xl mb-3">LLM ASSISTANT</h2>
               <p className="text-2xl">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and be an assistant</p>
-              <a href="https://github.com/Rivridis/Assistant-Client" className="mt-8 inline-block text-[#887742] text-xl px-4 py-2 rounded-md hover:text-[#338bff] transition-colors">
+              <a href="https://github.com/Rivridis/Assistant-Client" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
                 VIEW SOURCE
               </a>
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
               <h2 className="text-2xl mb-3">RIVRIDIS READER</h2>
               <p className="text-2xl">A full stack app based on the QT framework, that can load and display EPUB files that are present in the system</p>
-              <a href="https://github.com/Rivridis/Ebook-Reader" className="mt-8 inline-block text-[#887742] text-xl px-4 py-2 rounded-md hover:text-[#338bff] transition-colors">
+              <a href="https://github.com/Rivridis/Ebook-Reader" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
                 VIEW SOURCE
               </a>
             </div>
@@ -106,7 +106,7 @@ export default function Home() {
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
               <h2 className="text-2xl mb-3">MEDIA GUESSER</h2>
               <p className="text-2xl">A react and nextjs based web app that displays screenshots from movies, and asks the user to guess the movie</p>
-              <a href="https://github.com/Rivridis/MediaGuesser" className="mt-8 inline-block text-[#887742] text-xl px-4 py-2 rounded-md hover:text-[#338bff] transition-colors">
+              <a href="https://github.com/Rivridis/MediaGuesser" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
                 VIEW SOURCE
               </a>
             </div>
@@ -129,8 +129,8 @@ export default function Home() {
               We occasionally collaborate on projects that inspire us, from innovative apps to creative game ideas.
             </p>
 
-            <p className="md:text-center text-[#B6AD90] font-medium hover:text-[#338bff] transition-colors">
-              <a href="/contact">Have an idea? Let's talk</a>
+            <p className="md:text-center">
+              <a href="/contact" className="text-[#B6AD90] font-medium hover:text-[#006eff] transition-colors">Have an idea? Let's talk</a>
             </p>
 
   

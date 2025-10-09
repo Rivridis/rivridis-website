@@ -18,10 +18,10 @@ export default function Footer() {
       <div>
         <h4 className="text-zinc-900 font-semibold mb-4">Quick Links</h4>
         <ul className="space-y-2">
-          <li><a href="/" className="hover:text-[#338bff]">Home</a></li>
-          <li><a href="/windows-assistant" className="hover:text-[#338bff]">Rivridis Assistant</a></li>
-          <li><a href="/services" className="hover:text-[#338bff]">Services</a></li>
-          <li><a href="/contact" className="hover:text-[#338bff]">Contact</a></li>
+          <li><a href="/" className="hover:text-[#006eff]">Home</a></li>
+          <li><a href="/windows-assistant" className="hover:text-[#006eff]">Rivridis Assistant</a></li>
+          <li><a href="/services" className="hover:text-[#006eff]">Services</a></li>
+          <li><a href="/contact" className="hover:text-[#006eff]">Contact</a></li>
         </ul>
       </div>
 
@@ -29,9 +29,8 @@ export default function Footer() {
       <div>
         <h4 className="text-zinc-900 font-semibold mb-4">Resources</h4>
         <ul className="space-y-2">
-          <li><a href="#" className="hover:text-[#338bff]">Blog</a></li>
-          <li><a href="/stories" className="hover:text-[#338bff]">Stories</a></li>
-          <li><a href="#" className="hover:text-[#338bff]">Music</a></li>
+          <li><a href="#" className="hover:text-[#006eff]">Blog</a></li>
+          <li><a href="/stories" className="hover:text-[#006eff]">Stories</a></li>
 
         </ul>
       </div>
@@ -40,8 +39,8 @@ export default function Footer() {
       <div>
         <h4 className="text-zinc-900 font-semibold mb-4">Legal</h4>
         <ul className="space-y-2">
-          <li><a href="privacy-policy" className="hover:text-[#338bff]">Privacy Policy</a></li>
-          <li><a href="/terms" className="hover:text-[#338bff]">Terms of Service</a></li>
+          <li><a href="privacy-policy" className="hover:text-[#006eff]">Privacy Policy</a></li>
+          <li><a href="/terms" className="hover:text-[#006eff]">Terms of Service</a></li>
         </ul>
       </div>
 
@@ -49,10 +48,10 @@ export default function Footer() {
       <div>
         <h4 className="text-zinc-900 font-semibold mb-4">Follow Us</h4>
         <div className="flex space-x-4">
-          <a href="https://www.instagram.com/rivridis/" target="_blank" rel="noopener noreferrer" className="hover:text-[#338bff]">
+          <a href="https://www.instagram.com/rivridis/" target="_blank" rel="noopener noreferrer" className="hover:text-[#006eff]">
             <i className="fab fa-facebook"></i> Instagram
           </a>
-          <a href="https://github.com/Rivridis/" target="_blank" rel="noopener noreferrer" className="hover:text-[#338bff]">
+          <a href="https://github.com/Rivridis/" target="_blank" rel="noopener noreferrer" className="hover:text-[#006eff]">
             <i className="fab fa-github"></i> Github
           </a>
         </div>
