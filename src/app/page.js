@@ -12,7 +12,7 @@ const slideUp = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#0C1016]">
       
       {/* Navbar */}
       <div className="hidden lg:block lg:fixed lg:top-1/2 lg:left-15 lg:-translate-y-1/2 lg:-translate-x-1/2">
