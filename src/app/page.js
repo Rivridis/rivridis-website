@@ -25,7 +25,7 @@ export default function Home() {
       <div className="w-full fixed top-0 left-0 z-50">
         <Navbar />
       </div>
-        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-16 bg-[url('/hero.png')] bg-cover bg-center">
+        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-16 bg-[url('/hero.png')] bg-cover bg-center bg-fixed">
           <header className="mb-8 text-center">
             <p className="text-5xl md:text-8xl text-[#0C1016] mb-4">RIVRIDIS STUDIO</p>
 
