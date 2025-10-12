@@ -24,7 +24,7 @@ export default function Home() {
           <header className="mb-8 text-center">
             <p className="text-5xl md:text-8xl text-[#0C1016] mb-4">RIVRIDIS STUDIO</p>
 
-            <p className="text-xl md:text-2xl text-[#ede9e5]">CRAFTING DIGITAL EXPERIENCES THAT RESONATE <br /> WITH LOVE</p>
+            <p className="text-xl md:text-2xl text-[#ede9e5]">TURNING IDEAS INTO INTERACTIVE SOFTWARE</p>
           </header>
         </div>
         
@@ -34,27 +34,23 @@ export default function Home() {
           <div>
             <p className="text-sm text-[#ede9e5] tracking-widest">- ABOUT US -</p>
             <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
-              BUILDING DIGITAL EXPERIENCES THAT INSPIRE
+              TURNING IDEAS INTO INTERACTIVE SOFTWARE
             </h2>
           </div>
 
           <div className="space-y-4 leading-relaxed text-xl md:text-2xl text-[#ede9e5]">
             <p>
-              At Rivridis Studio, we craft digital experiences that blend creativity
-              with technology. From sleek Windows applications to immersive web
-              platforms and games, we bring ideas to life with passion and precision.
+              At Rivridis Studio, we believe the best technology starts with a simple idea, and the drive to make it real. From sleek Windows applications to immersive web
+              platforms and games, we bring ideas to life that engage, entertain, and empower users.
             </p>
 
             <p>
-              Our mission is to build software that feels as good as it performs.
               We focus on seamless design, solid performance, and user-centered
               development that makes every interaction meaningful.
             </p>
 
             <p>
-              Driven by innovation and guided by care, we turn vision into reality.
-              At Rivridis Studio, every line of code is written with love,
-              because great digital experiences start with heart.
+              Driven by innovation, we turn ideas into interactive and intelligent software that pushes boundaries and shapes the future of digital innovation.
             </p>
           </div>
 
@@ -84,7 +80,7 @@ export default function Home() {
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
               <h2 className="text-2xl mb-3">LLM ASSISTANT</h2>
               <p className="text-2xl">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and be an assistant</p>
-              <a href="https://github.com/Rivridis/Assistant-Client" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
+              <a href="/rivridis-assistant" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
                 VIEW SOURCE
               </a>
             </div>

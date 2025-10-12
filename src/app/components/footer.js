@@ -10,7 +10,7 @@ export default function Footer() {
       <div>
         <h3 className="text-zinc-900 text-lg font-semibold mb-4">Rivridis</h3>
         <p className="text-zinc-800">
-          Building quality digital experiences for businesses and individuals.
+          Turning ideas into interactive software since 2025
         </p>
       </div>
 
