@@ -1,14 +1,9 @@
 "use client"
-import Image from "next/image";
+
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import HeroTitle from "./components/title";
-import { motion } from "framer-motion";
+import SmoothBackgroundWrapper from "./components/background";
 
-const slideUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 export default function Home() {
   return (
@@ -74,8 +69,9 @@ export default function Home() {
         </div>
       </section>
 
+      <SmoothBackgroundWrapper>
       {/*Portfolio Section */}
-      <section className="min-h-screen bg-[#0C1016] text-gray-200 flex px-8 py-16 items-center justify-center">
+      <section className="min-h-screen text-gray-200 flex px-8 py-16 items-center justify-center">
         <div className="w-5xl space-y-6 flex flex-col ">
           <div>
             <p className="text-sm text-[#ede9e5] tracking-widest">- PORTFOLIO -</p>
@@ -114,29 +110,33 @@ export default function Home() {
         </div>
       </section>
 
-       {/* Collaboration Section */}
-        <section className="min-h-screen bg-linear-to-t to-[#0C1016] from-[#889cb8] text-gray-200 flex px-8 py-16 items-center justify-center">
-        <div className="max-w-5xl space-y-6 ">
-          <div>
-            <p className="text-sm text-[#ede9e5] tracking-widest">- COLLABORATION -</p>
-            <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
-              LET'S BUILD TOGETHER
-            </h2>
+      {/* Collaboration Section with smooth transition */}
+      
+        <section className="min-h-screen flex items-center justify-center px-8 py-16 text-[#0C1016]">
+          <div className="max-w-5xl space-y-6">
+            <div>
+              <p className="text-sm tracking-widest">- COLLABORATION -</p>
+              <h2 className="text-2xl md:text-3xl mt-2 font-semibold">
+                LET'S BUILD TOGETHER
+              </h2>
+            </div>
+
+            <div className="space-y-4 leading-relaxed text-xl md:text-2xl md:py-32">
+              <p className="md:text-center md:px-32">
+                We occasionally collaborate on projects that inspire us, from innovative apps to creative game ideas.
+              </p>
+              <p className="md:text-center">
+                <a
+                  href="/contact"
+                  className="text-[#e2d5a6] font-medium hover:text-[#006eff] transition-colors"
+                >
+                  Have an idea? Let's talk
+                </a>
+              </p>
+            </div>
           </div>
-
-          <div className="space-y-4 leading-relaxed text-xl md:text-2xl text-[#ede9e5] md:py-32">
-            <p className="md:text-center md:px-32">
-              We occasionally collaborate on projects that inspire us, from innovative apps to creative game ideas.
-            </p>
-
-            <p className="md:text-center">
-              <a href="/contact" className="text-[#B6AD90] font-medium hover:text-[#006eff] transition-colors">Have an idea? Let's talk</a>
-            </p>
-
-  
-          </div>
-        </div>
-      </section>
+        </section>
+      </SmoothBackgroundWrapper>
 
     <Footer />
   </div>
