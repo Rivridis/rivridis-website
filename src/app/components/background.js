@@ -7,7 +7,7 @@ export default function SmoothBackgroundWrapper({ children }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0.5 0.5", "0.6 0.6"], 
+    offset: ["0.7 0.7", "0.8 0.8"], 
     // start changing around 50% in view, fully changed before bottom
   });
 

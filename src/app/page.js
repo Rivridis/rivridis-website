@@ -3,6 +3,7 @@
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import SmoothBackgroundWrapper from "./components/background";
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -103,6 +104,28 @@ export default function Home() {
               </a>
             </div>
         </div>
+        </div>
+      </section>
+
+       <section className="min-h-screen text-gray-200 flex px-8 py-16 items-center justify-center">
+        <div className="w-5xl space-y-6 flex flex-col ">
+          <div>
+            <p className="text-sm text-[#ede9e5] tracking-widest">- TECHNOLOGY -</p>
+            <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
+              STACK WE USE FOR OUR SOFTWARE
+            </h2>
+          </div>
+          <div className="flex flex-col md:flex-row gap-4 pt-8 md:pt-24">
+             <div className="flex flex-wrap justify-center md:justify-start gap-6 pt-4">
+              <img src="/skills/cpp.png" alt="C++" className="w-32 h-32 object-contain" />
+              <img src="/skills/python.png" alt="Python" className="w-32 h-32 object-contain" />
+              <img src="/skills/react.png" alt="React" className="w-32 h-32 object-contain" />
+              <img src="/skills/QT.png" alt="QT" className="w-32 h-32 object-contain" />
+              <img src="/skills/torch.png" alt="Torch" className="w-32 h-32 object-contain" />
+              <img src="/skills/ue5.png" alt="Unreal Engine 5" className="w-32 h-32 object-contain" />
+          </div>
+      
+          </div>
         </div>
       </section>
 
