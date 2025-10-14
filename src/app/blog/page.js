@@ -22,7 +22,7 @@ export default async function BlogPage() {
         <Navbar />
       </div>
       
-      <div className="w-full max-w-6xl mx-auto pt-25 px-16 pb-16 text-[#0C1016]">
+      <div className="w-full max-w-6xl mx-auto pt-25 p-6 md:px-16 md:pb-16 text-[#0C1016]">
         <h1 className="text-4xl md:text-5xl mb-6">BLOG - CATEGORIES</h1>
         {categories.length === 0 && <p>No categories yet.</p>}
 

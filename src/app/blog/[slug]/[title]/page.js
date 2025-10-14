@@ -21,17 +21,15 @@ return (
          <div className="w-full fixed top-0 left-0 z-50">
                         <Navbar />
             </div>
-     <div className="w-full max-w-6xl mx-auto pt-25 px-16 pb-16 text-[#0C1016]">
-        <h1 className="text-4xl md:text-5xl mb-6 text-center">{decodedTitle.toUpperCase()}</h1>
+     <div className="w-full max-w-6xl mx-auto pt-25 p-6 md:px-16 md:pb-16 text-[#0C1016]">
         <ul className="flex flex-col items-center justify-center">
             {posts.map((post) => (
-                <div key={post._id} className="py-6 prose prose-lg prose-neutral">
+                <div key={post._id} className="w-full py-6 prose prose-xl prose-neutral">
                     <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
             ))}
         </ul>
      </div>
-     <Footer />
     </main>
 );
 }
