@@ -4,8 +4,8 @@ import Footer from "../components/footer"
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Rivridis Services | Rivridis Inc',
-  description: 'Rivridis Services offers a range of software tools, as well as creative solutions, to enhance productivity.',
+  title: 'Products | Rivridis Inc',
+  description: 'Rivridis Studio offers a range of software tools, as well as creative solutions, to enhance productivity.',
 };
 
 export default function Home() {
