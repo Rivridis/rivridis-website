@@ -5,11 +5,16 @@ import Link from "next/link";
 
 export default async function PostPage({ params }) {
   const { slug } = await params;
-   const decodedSlug = decodeURIComponent(slug);
+  const decodedSlug = decodeURIComponent(slug);
   const client = await clientPromise;
   const db = client.db("blog-data");
 
-  const posts = await db.collection("blogs").find({ category: decodedSlug }).toArray();
+  const posts = await db.collection("blogs")
+    .find(
+      { category: decodedSlug }, // The query
+      { projection: { _id: 1, title: 1, category: 1, date: 1 } } // Only fetch these fields
+    )
+    .toArray();
 
   if (!posts || posts.length === 0) {
     return <p>No posts found in this category</p>;
