@@ -16,13 +16,15 @@ export const metadata = {
   description: "Rivridis Inc. is a technology studio specializing in software development, digital art, and storytelling. We blend technology and creativity to craft immersive digital experiences across platforms.",
 };
 
+import { SessionProvider } from "next-auth/react";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   );
