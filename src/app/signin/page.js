@@ -1,8 +1,16 @@
+import { auth } from "@/auth";
 import { signIn } from "@/auth"
 import { FcGoogle } from "react-icons/fc" // Google icon
 import Navbar from "src/app/components/navbar.js"
+import { redirect, RedirectType } from 'next/navigation'
 
-export default function SignIn() {
+export default async function SignIn() {
+
+  const session = await auth();
+  if (session) {
+    // Already logged in → redirect to dashboard
+    redirect("/dashboard", RedirectType.replace);
+  }
   return (
     <div className="flex min-h-screen items-center justify-center  bg-[#889cb8] px-4"
     >
