@@ -12,7 +12,7 @@ export default function Home() {
       
       {/* Navbar */}
       <div className="hidden lg:block lg:fixed lg:top-1/2 lg:left-15 lg:-translate-y-1/2 lg:-translate-x-1/2">
-        <p className="text-[#ede9e5] text-md font-light -rotate-90 ">
+        <p className="text-[#ede9e5] text-sm font-light -rotate-90 ">
           <span>GAMING</span>
           <span className="ml-10">SOFTWARE</span>
           <span className="ml-10">CREATIVE DESIGN</span>
