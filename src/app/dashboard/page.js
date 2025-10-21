@@ -39,7 +39,7 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-[#889cb8]">
        <div className="w-full fixed top-0 left-0 z-50">
-          <Navbar />
+          <Navbar text="DASHBOARD" />
         </div>
       <div className="pt-20 px-10 pb-5"><Dashboard user={user} /></div>
     </div>

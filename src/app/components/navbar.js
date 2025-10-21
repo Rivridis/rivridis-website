@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 
-export default function Navbar() {
+export default function Navbar({text = "LOGIN"}) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     return (
         <nav className="bg-[#ede9e5] px-6 py-2 flex items-center justify-between mx-auto mt-0 md:mt-4 max-w-[700px] md:rounded-md md:px-8 border border-black">
@@ -38,7 +38,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-4 text-sm">
                 <button>
-                    <Link href="/signin"><span className="text-[#0C1016] cursor-pointer text-sm">LOGIN</span></Link>
+                    <Link href="/signin"><span className="text-[#0C1016] cursor-pointer text-sm">{text}</span></Link>
                 </button>
             </div>
         </nav>
