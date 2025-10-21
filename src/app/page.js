@@ -12,7 +12,7 @@ export default function Home() {
       
       {/* Navbar */}
       <div className="hidden lg:block lg:fixed lg:top-1/2 lg:left-15 lg:-translate-y-1/2 lg:-translate-x-1/2">
-        <p className="text-[#ede9e5] text-sm font-light -rotate-90 ">
+        <p className="text-[#ede9e5] text-md font-light -rotate-90 ">
           <span>GAMING</span>
           <span className="ml-10">SOFTWARE</span>
           <span className="ml-10">CREATIVE DESIGN</span>
@@ -21,9 +21,9 @@ export default function Home() {
       <div className="w-full fixed top-0 left-0 z-50">
         <Navbar />
       </div>
-        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-16 bg-[url('/hero.png')] bg-cover bg-center bg-fixed">
+        <div className="flex flex-col items-center justify-center w-full px-6 flex-1 min-h-screen pt-12 bg-[url('/hero.png')] bg-cover bg-center bg-fixed">
           <header className="mb-8 text-center">
-            <p className="text-5xl md:text-8xl text-[#0C1016] mb-4">RIVRIDIS STUDIO</p>
+            <p className="text-6xl md:text-8xl text-[#0C1016] mb-4">RIVRIDIS STUDIO</p>
 
             <p className="text-xl md:text-2xl text-[#ede9e5]">TURNING IDEAS INTO INTERACTIVE SOFTWARE</p>
           </header>
