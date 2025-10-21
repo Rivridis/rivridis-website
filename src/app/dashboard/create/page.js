@@ -12,7 +12,7 @@ export default async function DashboardPage() {
   }
 
   // Only allow access for the specific Gmail address
-  if (session.user?.email !== "rivridis@gmail.com" || session.user?.email !== "keerthikapugal@gmail.com") {
+  if (session.user?.email !== "rivridis@gmail.com" && session.user?.email !== "keerthikapugal@gmail.com") {
     return (
       <div className="min-h-screen bg-[#889cb8] flex items-center justify-center p-5">
         <div className="flex flex-col items-center justify-center bg-white p-5 rounded shadow-lg">
