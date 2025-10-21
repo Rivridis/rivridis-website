@@ -33,7 +33,7 @@ export default function Home() {
         <section className="min-h-screen bg-[#0C1016] text-gray-200 flex px-8 py-16 items-center justify-center">
         <div className="max-w-5xl space-y-6 ">
           <div>
-            <p className="text-sm text-[#ede9e5] tracking-widest">- ABOUT US -</p>
+          <p className="text-sm text-[#ede9e5] tracking-widest">- ABOUT US -</p>
             <h2 className="text-2xl text-[#ede9e5] md:text-3xl mt-2">
               TURNING IDEAS INTO INTERACTIVE SOFTWARE
             </h2>
