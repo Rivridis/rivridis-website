@@ -101,19 +101,24 @@ export default async function Dashboard() {
                     (post.content
                       ? `${String(post.content).slice(0, 120)}${String(post.content).length > 120 ? "..." : ""}`
                       : "No excerpt");
-                  return (
+                    const categorySegment = encodeURIComponent(String(post.category || "uncategorized"));
+                    const titleSegment = encodeURIComponent(String(post.title || post.slug || id));
+                    return (
                     <li
                       key={id}
                       className="bg-[#2b2d2f] p-4 rounded-md flex flex-col sm:flex-row sm:items-center gap-2"
                     >
                       <div className="flex-1">
-                        <a href={`/posts/${post.slug || id}`} className="text-white text-md font-semibold hover:underline">
-                          {title}
-                        </a>
-                        <p className="text-gray-300 text-sm mt-1">{excerpt}</p>
+                      <Link
+                        href={`/blog/${categorySegment}/${titleSegment}`}
+                        className="text-white text-md font-semibold hover:underline"
+                      >
+                        {title}
+                      </Link>
+                      <p className="text-gray-300 text-sm mt-1">{excerpt}</p>
                       </div>
                     </li>
-                  );
+                    );
                 })}
               </ul>
             )}
