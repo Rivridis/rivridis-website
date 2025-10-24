@@ -43,7 +43,7 @@ export default async function Dashboard() {
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white font-sans py-8 px-8 md:px-30">
       <div className="w-full fixed top-0 left-0 z-50">
-        <Navbar />
+        <Navbar text="DASHBOARD" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-12">
         {/* Top Row */}
@@ -81,10 +81,12 @@ export default async function Dashboard() {
         {/* Bottom Row */}
         <div className="bg-[#1a1c1e] rounded-md lg:col-span-2 flex flex-col relative p-6">
           <h3 className="text-lg mt-1 tracking-wide">RECENT POSTS</h3>
-          <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
-            <span className="hidden sm:inline">EDIT POSTS</span>
-            <span className="sm:hidden">VIEW</span>
-          </button>
+          <Link href="/dashboard/view">
+            <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
+              <span className="hidden sm:inline">EDIT POSTS</span>
+              <span className="sm:hidden">VIEW</span>
+            </button>
+          </Link>
 
           <div className="flex-1 mt-2 text-gray-400 text-sm">
             {posts.length === 0 ? (
