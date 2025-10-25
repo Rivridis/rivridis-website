@@ -3,8 +3,7 @@ import Link from "next/link";
 import Navbar from "src/app/components/navbar.js"
 import { ObjectId } from "mongodb";
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
-import { redirect, RedirectType } from 'next/navigation'
+
 
 export async function deletePost(formData) {
   "use server";
@@ -25,10 +24,6 @@ export async function deletePost(formData) {
 
 // Server Component (runs on the server)
 export default async function PostsPage() {
-  const session = await auth();
-  if (!session) {
-      redirect("/signin");
-    }
 
   // Connect to MongoDB
   const client = await clientPromise;

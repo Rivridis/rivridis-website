@@ -2,16 +2,11 @@ import Navbar from "src/app/components/navbar.js"
 import clientPromise from "@/lib/mongo.js";
 import { auth } from "@/auth";
 import { signOut } from "@/auth.ts"
-import { redirect } from "next/navigation";
 import Link from "next/link";
 
 export default async function Dashboard() {
   const session = await auth();
-  if (!session) {
-    redirect("/signin");
-  }
-
-
+ 
   const client = await clientPromise;
   const db = client.db("blog-data");
 
@@ -20,25 +15,6 @@ export default async function Dashboard() {
     .find({})
     .sort({ createdAt: -1 })
     .toArray();
-
-
-  if (session.user?.email !== "rivridis@gmail.com" && session.user?.email !== "keerthikapugal@gmail.com") {
-    return (
-      <div className="min-h-screen bg-[#889cb8] flex items-center justify-center p-5">
-        <div className="flex flex-col items-center justify-center bg-white p-5 rounded shadow-lg">
-          <h2 className="text-xl font-bold mb-4">Access Denied</h2>
-          <p className="mb-4">You do not have permission to access this page.</p>
-          <form className="items-center justify-center" action={async () => {
-          "use server"
-          await signOut()
-      }}
-    >
-        <button type="submit" className="hover:underline items-center justify-center">Sign Out</button>
-        </form>
-        </div>
-      </div>
-    );
-  }
   
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white font-sans py-8 px-8 md:px-30">

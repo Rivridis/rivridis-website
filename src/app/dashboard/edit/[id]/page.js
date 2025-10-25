@@ -4,7 +4,6 @@ import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { redirect, RedirectType } from 'next/navigation'
 import Navbar from "src/app/components/navbar.js"
-import { auth } from "@/auth";
 
 
 export async function updatePost(formData) {
@@ -35,12 +34,6 @@ export async function updatePost(formData) {
   }
 
 export default async function EditPostPage({ params }) {
-  const session = await auth();
-    
-      if (!session) {
-        redirect("/signin");
-      }
-  
   const { id } = await params;
 
   const client = await clientPromise;
