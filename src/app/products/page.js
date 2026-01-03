@@ -40,6 +40,18 @@ export default function Home() {
                     className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
+
+             {/* Card 3 */}
+            <a className="bg-[#0C1016] rounded-lg shadow p-10 hover:bg-[#2d2a26] transition flex flex-row items-center" href="/melodykit">
+                <div className="flex-1 text-[#ede9e5]">
+                    <div className="text-2xl font-bold mb-2 text-[#b6ad90]">Rivridis MelodyKit</div>
+                    <p className="text-zinc-200">MelodyKit is a easy to use DAW, which can be used for both hobby and professional music production. Try out the beta now!</p>
+                </div>
+                <img
+                    src="melodyicon.png"
+                    className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
+                />
+            </a>
           
         </div>
         <Footer />

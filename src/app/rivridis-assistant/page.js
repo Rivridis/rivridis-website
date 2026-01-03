@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 
 export const metadata = {
-  title: 'Rivridis Assistant | Rivridis Inc',
+  title: 'Rivridis Assistant | Rivridis Studio',
   description: 'Rivridis Assistant is an AI-powered tool designed to enhance productivity and streamline workflows.',
 };
 
