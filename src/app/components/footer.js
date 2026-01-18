@@ -20,7 +20,7 @@ export default function Footer() {
         <ul className="space-y-2">
           <li><a href="/" className="hover:text-[#006eff]">Home</a></li>
           <li><a href="/windows-assistant" className="hover:text-[#006eff]">Rivridis Assistant</a></li>
-          <li><a href="/services" className="hover:text-[#006eff]">Services</a></li>
+          <li><a href="/products" className="hover:text-[#006eff]">Products</a></li>
           <li><a href="/contact" className="hover:text-[#006eff]">Contact</a></li>
         </ul>
       </div>

@@ -37,7 +37,7 @@ export default async function PostsPage() {
     .toArray();
 
   return (
-    <div className="min-h-screen bg-[#8a9bb2] text-white font-sans py-8 px-8 md:px-30">
+    <div className="min-h-screen bg-[#8a9bb2] text-white py-8 px-8 md:px-30">
       {/* Navbar */}
       <div className="w-full fixed top-0 left-0 z-50">
         <Navbar text="DASHBOARD" />

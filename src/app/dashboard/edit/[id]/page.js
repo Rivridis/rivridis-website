@@ -42,14 +42,14 @@ export default async function EditPostPage({ params }) {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-[#8a9bb2] text-white font-sans flex items-center justify-center">
+      <div className="min-h-screen bg-[#8a9bb2] text-white flex items-center justify-center">
         <p>Post not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#8a9bb2] text-white font-sans pt-20 px-8 pb-8 md:px-30">
+    <div className="min-h-screen bg-[#8a9bb2] text-white pt-20 px-8 pb-8 md:px-30">
       <div className="w-full fixed top-0 left-0 z-50">
         <Navbar text="DASHBOARD" />
       </div>
