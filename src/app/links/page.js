@@ -13,8 +13,8 @@ export default function Page() {
                 <h1 className="text-4xl font-bold mb-8 mt-25 text-[#0C1016]">Links</h1>
                 <div className="space-y-4 w-full max-w-xl text-center">
                     <div className="bg-[#0C1016] rounded-lg shadow p-5">
-                        <Link href="https://rivridis.gumroad.com/l/ProcreateMangaTools" className="block text-lg text-[#b6ad90] hover:underline">
-                            Gumroad - Manga Brushes
+                        <Link href="https://www.patreon.com/c/Rivridis" className="block text-lg text-[#b6ad90] hover:underline">
+                            Patreon
                         </Link>
                     </div>
                     <div className="bg-[#0C1016] rounded-lg shadow p-5">
