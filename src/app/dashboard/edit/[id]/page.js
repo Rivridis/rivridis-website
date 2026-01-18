@@ -102,7 +102,7 @@ export default async function EditPostPage({ params }) {
 
           <button
             type="submit"
-            className="bg-[#7b735c] text-white px-4 py-2 rounded-md hover:bg-[#6d6553] transition self-end"
+            className="w-full bg-[#7b735c] text-white px-4 py-2 rounded-md hover:bg-[#6d6553] transition text-center"
           >
             UPDATE POST
           </button>

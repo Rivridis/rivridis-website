@@ -79,8 +79,16 @@ export default function Dashboard({user}) {
 
 
   return (
-    <div className="flex flex-col space-y-2 mx-auto max-w-3xl rounded-lg bg-[#ede9e5] p-8 shadow">
-      <h1 className="mb-6 text-3xl font-bold text-gray-900">Create a New Post, {user.name}!</h1>
+    <div className="flex flex-col space-y-2 mx-auto max-w-3xl rounded-lg bg-[#1a1c1e] p-8 shadow">
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-bold text-white">Create a New Post, {user.name}!</h1>
+        <button
+          onClick={() => window.history.back()}
+          className="rounded-md bg-[#7b735c] px-4 py-2 text-white hover:bg-[#6d6553] transition-colors"
+        >
+          Back
+        </button>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -88,7 +96,7 @@ export default function Dashboard({user}) {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full border-b border-[#0C1016] px-4 py-2 focus:outline-none"
+          className="w-full border-b border-[#7b735c] px-4 py-2 text-white focus:outline-none"
         />
 
         <input
@@ -96,34 +104,30 @@ export default function Dashboard({user}) {
           placeholder="Category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full border-b border-[#0C1016] px-4 py-2 focus:outline-none"
+          className="w-full border-b border-[#7b735c] px-4 py-2 text-white focus:outline-none"
         />
 
-        <SimpleMDE
-          value={contentRef.current}
-          onChange={handleContentChange}
-          options={{
-            spellChecker: false,
-            placeholder: "Write your post in Markdown...",
-          }}
-        />
+        <div className="[&_.EasyMDEContainer]:bg-[#1a1c1e] [&_.CodeMirror]:bg-[#1a1c1e] [&_.CodeMirror]:text-white [&_.CodeMirror]:border-[#7b735c] [&_.editor-toolbar]:bg-[#1a1c1e] [&_.editor-toolbar]:border-[#7b735c] [&_.editor-toolbar_button]:text-[#7b735c] [&_.editor-toolbar_button:hover]:bg-[#7b735c] [&_.editor-toolbar_button:hover]:text-[#1a1c1e] [&_.CodeMirror-cursor]:border-white">
+          <SimpleMDE
+            value={contentRef.current}
+            onChange={handleContentChange}
+            options={{
+              spellChecker: false,
+              placeholder: "Write your post in Markdown...",
+            }}
+          />
+        </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-md bg-[#0C1016] px-4 py-2 text-white transition-colors hover:bg-blue-800 disabled:opacity-50"
+          className="w-full rounded-md bg-[#7b735c] px-4 py-2 text-white transition-colors hover:bg-[#6d6553] disabled:opacity-50"
         >
           {loading ? "Saving..." : "Create Post"}
         </button>
       </form>
-      <button
-          onClick={() => signOut()}
-          className="rounded-md bg-[#0C1016] px-4 py-2 text-white hover:bg-red-800 transition-colors"
-        >
-          Logout
-        </button>
 
-      {message && <p className="mt-4 text-center text-gray-700">{message}</p>}
+      {message && <p className="mt-4 text-center text-white">{message}</p>}
     </div>
   );
 }
