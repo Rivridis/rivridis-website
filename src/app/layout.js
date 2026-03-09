@@ -1,5 +1,6 @@
 import {Roboto} from "next/font/google";
 import "./globals.css";
+import NextTopLoader from 'nextjs-toploader';
 
 const Robotofont = Roboto({
   variable: "--font-roboto",
@@ -19,6 +20,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${Robotofont.variable} font-main`}>
       <body>
+        <NextTopLoader 
+          color="#e2d5a6" // Matches your text color
+          showSpinner={false}
+          shadow={false}
+        />
         <SessionProvider>{children}</SessionProvider>
       </body>
     </html>

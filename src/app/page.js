@@ -79,28 +79,28 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
             {/* Card 1 */}
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
-              <h2 className="text-2xl mb-3">LLM ASSISTANT</h2>
+              <h2 className="text-2xl mb-3">Rivridis AI</h2>
               <p className="text-2xl">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and be an assistant</p>
               <a href="/rivridis-assistant" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
-                VIEW SOURCE
+                VIEW PAGE
               </a>
             </div>
 
             {/* Card 2 */}
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
-              <h2 className="text-2xl mb-3">RIVRIDIS READER</h2>
-              <p className="text-2xl">A full stack app based on the QT framework, that can load and display EPUB files that are present in the system</p>
-              <a href="https://github.com/Rivridis/Ebook-Reader" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
-                VIEW SOURCE
+              <h2 className="text-2xl mb-3">Riv MelodyKit</h2>
+              <p className="text-2xl">MelodyKit is a lightweight, open-source DAW focused on fast music sketching and beat making</p>
+              <a href="/melodykit" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
+                VIEW PAGE
               </a>
             </div>
 
             {/* Card 3 */}
             <div className="flex-1 bg-[#889cb8] p-8 rounded-xl shadow text-center text-black min-w-[200px] min-h-[350px]">
-              <h2 className="text-2xl mb-3">MEDIA GUESSER</h2>
+              <h2 className="text-2xl mb-3">Riv MediaGuess</h2>
               <p className="text-2xl">A react and nextjs based web app that displays screenshots from movies, and asks the user to guess the movie</p>
               <a href="https://github.com/Rivridis/MediaGuesser" className="mt-8 inline-block text-[#e2d5a6] text-xl px-4 py-2 rounded-md hover:text-[#006eff] transition-colors">
-                VIEW SOURCE
+                VIEW PAGE
               </a>
             </div>
         </div>
