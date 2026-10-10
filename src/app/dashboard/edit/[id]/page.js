@@ -4,6 +4,7 @@ import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { redirect, RedirectType } from 'next/navigation'
 import Navbar from "src/app/components/navbar.js"
+import EditForm from "./edit-form";
 
 
 export async function updatePost(formData) {
@@ -48,6 +49,14 @@ export default async function EditPostPage({ params }) {
     );
   }
 
+  // Serialize only what the client form needs
+  const serializedPost = {
+    id: id,
+    title: post.title || "",
+    category: post.category || "",
+    content: post.content || "",
+  };
+
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white pt-20 px-8 pb-8 md:px-30">
       <div className="w-full fixed top-0 left-0 z-50">
@@ -64,49 +73,8 @@ export default async function EditPostPage({ params }) {
           </Link>
         </div>
 
-        {/* ✅ Form handled on server */}
-        <form action={updatePost} className="flex flex-col gap-6">
-          <input type="hidden" name="id" value={id} />
-
-          <div>
-            <label className="block text-sm mb-1">Title</label>
-            <input
-              type="text"
-              name="title"
-              defaultValue={post.title}
-              required
-              className="w-full px-3 py-2 rounded-md bg-[#2b2d2f] text-white border border-[#7b735c] focus:outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm mb-1">Category</label>
-            <input
-              type="text"
-              name="category"
-              defaultValue={post.category || ""}
-              className="w-full px-3 py-2 rounded-md bg-[#2b2d2f] text-white border border-[#7b735c] focus:outline-none"
-            />
-          </div>
-
-          {/* Post content div added below */}
-          <div>
-            <label className="block text-sm mb-1">Content</label>
-            <textarea
-              name="content"
-              defaultValue={post.content || ""}
-              rows={10}
-              className="w-full px-3 py-2 rounded-md bg-[#2b2d2f] text-white border border-[#7b735c] focus:outline-none resize-vertical"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-[#7b735c] text-white px-4 py-2 rounded-md hover:bg-[#6d6553] transition text-center"
-          >
-            UPDATE POST
-          </button>
-        </form>
+        {/* ✅ Form handled on server, editor UI handled on client */}
+        <EditForm post={serializedPost} updatePost={updatePost} />
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ const stack = [
   { src: "/skills/ue5.png", name: "UE5", note: "Games" },
 ];
 
-const ticker = ["Gaming", "Software", "Creative Design", "Interactive", "Intelligent"];
+const ticker = ["Gaming", "Software", "Design"];
 
 export default function Home() {
   const { scrollYProgress, scrollY } = useScroll();
