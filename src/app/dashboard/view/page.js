@@ -1,6 +1,7 @@
 import clientPromise from "@/lib/mongo.js";
 import Link from "next/link";
 import Navbar from "src/app/components/navbar.js"
+import ViewMenu from "./view-menu.js";
 import { ObjectId } from "mongodb";
 import { revalidatePath } from "next/cache";
 
@@ -52,25 +53,25 @@ export default async function PostsPage({ searchParams }) {
 
       <div className="pt-12">
         {/* Header Section */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8">
-          <div className="flex items-center gap-3">
-            <h2 className="text-2xl tracking-wide font-semibold">
-              {showStories ? `All Stories (${posts.length})` : `All Posts (${posts.length})`}
-            </h2>
-            <div className="flex gap-2">
-              <Link href="/dashboard/view">
-                <button className={`text-sm px-4 py-2 rounded-md transition ${!showStories ? "bg-[#7b735c] text-white" : "bg-[#1a1c1e] text-gray-400 hover:text-white"}`}>
-                  POSTS
-                </button>
-              </Link>
-              <Link href="/dashboard/view?type=stories">
-                <button className={`text-sm px-4 py-2 rounded-md transition ${showStories ? "bg-[#7b735c] text-white" : "bg-[#1a1c1e] text-gray-400 hover:text-white"}`}>
-                  STORIES
-                </button>
-              </Link>
-            </div>
+        <div className="flex items-center gap-3 mb-8">
+          <h2 className="text-xl sm:text-2xl tracking-wide font-semibold truncate">
+            {showStories ? `All Stories (${posts.length})` : `All Posts (${posts.length})`}
+          </h2>
+          {/* Desktop: inline tabs */}
+          <div className="hidden sm:flex gap-2 shrink-0">
+            <Link href="/dashboard/view">
+              <button className={`text-sm px-4 py-2 rounded-md transition ${!showStories ? "bg-[#7b735c] text-white" : "bg-[#1a1c1e] text-gray-400 hover:text-white"}`}>
+                POSTS
+              </button>
+            </Link>
+            <Link href="/dashboard/view?type=stories">
+              <button className={`text-sm px-4 py-2 rounded-md transition ${showStories ? "bg-[#7b735c] text-white" : "bg-[#1a1c1e] text-gray-400 hover:text-white"}`}>
+                STORIES
+              </button>
+            </Link>
           </div>
-          <div className="mt-4 sm:mt-0 flex items-center gap-2">
+          {/* Desktop: inline actions */}
+          <div className="hidden sm:flex items-center gap-2 ml-auto">
             <Link href="/dashboard/create">
               <button className="bg-[#1a1c1e] text-sm px-4 py-2 rounded-md hover:bg-[#2c2e30] transition">
                 CREATE
@@ -81,6 +82,15 @@ export default async function PostsPage({ searchParams }) {
                 BACK
               </button>
             </Link>
+          </div>
+          {/* Mobile: BACK directly + ... for POSTS/STORIES/CREATE */}
+          <div className="flex sm:hidden items-center gap-2 ml-auto shrink-0">
+            <Link href="/dashboard">
+              <button className="bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
+                BACK
+              </button>
+            </Link>
+            <ViewMenu showStories={showStories} />
           </div>
         </div>
 

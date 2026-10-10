@@ -1,4 +1,5 @@
 import Navbar from "src/app/components/navbar.js"
+import RecentTabsMenu from "./recent-tabs-menu.js";
 import clientPromise from "@/lib/mongo.js";
 import { auth } from "@/auth";
 import { signOut } from "@/auth.ts"
@@ -86,28 +87,14 @@ export default async function Dashboard({ searchParams }) {
         </div>
 
         {/* Bottom Row */}
-        <div className="bg-[#1a1c1e] rounded-md lg:col-span-2 flex flex-col relative p-6">
-          <div className="flex items-center gap-2 mt-1">
+        <div className="bg-[#1a1c1e] rounded-md lg:col-span-2 flex flex-col p-6">
+          <div className="flex items-center gap-x-2 mt-1">
             <h3 className="text-lg tracking-wide">RECENT</h3>
-            <div className="flex gap-2 ml-2">
-              <Link href="/dashboard">
-                <button className={`text-sm px-4 py-2 rounded-md transition ${!showStories ? "bg-[#7b735c] text-white" : "bg-[#2b2d2f] text-gray-400 hover:text-white"}`}>
-                  POSTS
-                </button>
-              </Link>
-              <Link href="/dashboard?tab=stories">
-                <button className={`text-sm px-4 py-2 rounded-md transition ${showStories ? "bg-[#7b735c] text-white" : "bg-[#2b2d2f] text-gray-400 hover:text-white"}`}>
-                  STORIES
-                </button>
-              </Link>
-            </div>
+            <RecentTabsMenu
+              showStories={showStories}
+              viewHref={showStories ? "/dashboard/view?type=stories" : "/dashboard/view"}
+            />
           </div>
-          <Link href={showStories ? "/dashboard/view?type=stories" : "/dashboard/view"}>
-            <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
-              <span className="hidden sm:inline">EDIT {showStories ? "STORIES" : "POSTS"}</span>
-              <span className="sm:hidden">VIEW</span>
-            </button>
-          </Link>
 
           <div className="flex-1 mt-2 text-gray-400 text-sm">
             {recent.length === 0 ? (
@@ -177,14 +164,16 @@ export default async function Dashboard({ searchParams }) {
           </div>
         </div>
 
-        <div className="bg-[#1a1c1e] rounded-md flex flex-col p-6 relative">
-          <h3 className="text-lg mt-1 tracking-wide">COMMENTS ({totalComments})</h3>
-          <Link href="/dashboard/comments">
-            <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
-              <span className="hidden sm:inline">VIEW COMMENTS</span>
-              <span className="sm:hidden">VIEW</span>
-            </button>
-          </Link>
+        <div className="bg-[#1a1c1e] rounded-md flex flex-col p-6">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-3 mt-1">
+            <h3 className="text-lg tracking-wide">COMMENTS ({totalComments})</h3>
+            <Link href="/dashboard/comments" className="ml-auto">
+              <button className="bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
+                <span className="hidden sm:inline">VIEW COMMENTS</span>
+                <span className="sm:hidden">VIEW</span>
+              </button>
+            </Link>
+          </div>
           <div className="flex-1 mt-4 text-gray-400 text-sm">
             {comments.length === 0 ? (
               <div className="flex items-center justify-center h-24">
