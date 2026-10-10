@@ -1,10 +1,36 @@
 "use client"
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function Navbar({text = "LOGIN"}) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [editorFullscreen, setEditorFullscreen] = useState(false);
+
+    // Hide navbar while EasyMDE is in fullscreen so its toolbar stays accessible.
+    // EasyMDE uses `.editor-toolbar.fullscreen` + `.CodeMirror-fullscreen` (z-index 8/9),
+    // which would otherwise sit underneath this navbar (z-50).
+    useEffect(() => {
+        const checkFullscreen = () => {
+            setEditorFullscreen(
+                !!document.querySelector(".editor-toolbar.fullscreen, .CodeMirror-fullscreen")
+            );
+        };
+
+        checkFullscreen();
+
+        const observer = new MutationObserver(checkFullscreen);
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ["class"],
+            childList: true,
+            subtree: true,
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    if (editorFullscreen) return null;
     return (
         <nav className="bg-[#ede9e5] px-6 py-2 flex items-center justify-between mx-auto mt-0 md:mt-4 max-w-[700px] md:rounded-md md:px-8 border border-black">
             <Link href="/" className="font-bold text-md text-[#0C1016] md:mb-0 mb-0">

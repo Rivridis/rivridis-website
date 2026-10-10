@@ -177,3 +177,16 @@
 @utility animate-marquee {
   animation: marquee 28s linear infinite;
 }
+
+/* EasyMDE fullscreen must sit above the fixed site navbar (z-50),
+   otherwise the navbar blocks the editor toolbar in fullscreen mode. */
+.editor-toolbar.fullscreen {
+  z-index: 100 !important;
+}
+.EasyMDEContainer .CodeMirror-fullscreen {
+  z-index: 99 !important;
+}
+.editor-preview-side,
+.editor-preview-full {
+  z-index: 99 !important;
+}
