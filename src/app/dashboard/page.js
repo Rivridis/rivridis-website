@@ -4,26 +4,38 @@ import { auth } from "@/auth";
 import { signOut } from "@/auth.ts"
 import Link from "next/link";
 
-export default async function Dashboard() {
+export default async function Dashboard({ searchParams }) {
   const session = await auth();
- 
-  const client = await clientPromise;
-  const db = client.db("blog-data");
+  const sp = await searchParams;
+  const tab = sp?.tab === "stories" ? "stories" : "posts";
+  const showStories = tab === "stories";
 
-  const posts = await db
+  const client = await clientPromise;
+  const blogDb = client.db("blog-data");
+  const storyDb = client.db("story-data");
+
+  const posts = await blogDb
     .collection("blogs")
     .find({})
     .sort({ createdAt: -1 })
     .toArray();
 
-  const comments = await db
+  const stories = await storyDb
+    .collection("stories")
+    .find({})
+    .sort({ date: -1 })
+    .toArray();
+
+  const comments = await blogDb
     .collection("comments")
     .find({})
     .sort({ date: -1 })
     .limit(5)
     .toArray();
 
-  const totalComments = await db.collection("comments").countDocuments();
+  const totalComments = await blogDb.collection("comments").countDocuments();
+
+  const recent = (showStories ? stories : posts).slice(0, 4);
   
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white py-8 px-8 md:px-30">
@@ -38,8 +50,8 @@ export default async function Dashboard() {
           <div className="ml-auto flex items-center gap-2">
             <Link href="/dashboard/create">
               <button className="bg-[#1a1c1e] text-sm px-4 py-2 rounded-md hover:bg-[#2c2e30] transition">
-                <span className="hidden sm:inline">CREATE POST</span>
-                <span className="sm:hidden">POST</span>
+                <span className="hidden sm:inline">CREATE</span>
+                <span className="sm:hidden">+</span>
               </button>
             </Link>
             <form
@@ -59,37 +71,76 @@ export default async function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-[#1a1c1e] rounded-md flex items-center justify-center px-6 py-6">
+        <div className="bg-[#1a1c1e] rounded-md flex flex-col items-center justify-center px-6 py-6 gap-1">
           <p className="text-lg tracking-wide">TOTAL POSTS: {posts.length}</p>
+          <p className="text-lg tracking-wide">TOTAL STORIES: {stories.length}</p>
         </div>
 
         {/* Bottom Row */}
         <div className="bg-[#1a1c1e] rounded-md lg:col-span-2 flex flex-col relative p-6">
-          <h3 className="text-lg mt-1 tracking-wide">RECENT POSTS</h3>
-          <Link href="/dashboard/view">
+          <div className="flex items-center gap-2 mt-1">
+            <h3 className="text-lg tracking-wide">RECENT</h3>
+            <div className="flex gap-2 ml-2">
+              <Link href="/dashboard">
+                <button className={`text-sm px-4 py-2 rounded-md transition ${!showStories ? "bg-[#7b735c] text-white" : "bg-[#2b2d2f] text-gray-400 hover:text-white"}`}>
+                  POSTS
+                </button>
+              </Link>
+              <Link href="/dashboard?tab=stories">
+                <button className={`text-sm px-4 py-2 rounded-md transition ${showStories ? "bg-[#7b735c] text-white" : "bg-[#2b2d2f] text-gray-400 hover:text-white"}`}>
+                  STORIES
+                </button>
+              </Link>
+            </div>
+          </div>
+          <Link href={showStories ? "/dashboard/view?type=stories" : "/dashboard/view"}>
             <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
-              <span className="hidden sm:inline">EDIT POSTS</span>
+              <span className="hidden sm:inline">EDIT {showStories ? "STORIES" : "POSTS"}</span>
               <span className="sm:hidden">VIEW</span>
             </button>
           </Link>
 
           <div className="flex-1 mt-2 text-gray-400 text-sm">
-            {posts.length === 0 ? (
+            {recent.length === 0 ? (
               <div className="flex items-center justify-center h-24">
-                No recent posts to show.
+                No recent {showStories ? "stories" : "posts"} to show.
               </div>
             ) : (
               <ul className="space-y-3 mt-4">
-                {posts.slice(0, 4).map((post, idx) => {
-                  const id = post._id ? post._id.toString() : idx;
-                  const title = post.title || "Untitled";
+                {recent.map((item, idx) => {
+                  const id = item._id ? item._id.toString() : idx;
+                  const title = item.title || "Untitled";
                   const excerpt =
-                    post.excerpt ||
-                    (post.content
-                      ? `${String(post.content).slice(0, 120)}${String(post.content).length > 120 ? "..." : ""}`
+                    item.excerpt ||
+                    item.description ||
+                    (item.content
+                      ? `${String(item.content).slice(0, 120)}${String(item.content).length > 120 ? "..." : ""}`
                       : "No excerpt");
-                    const categorySegment = encodeURIComponent(String(post.category || "uncategorized"));
-                    const titleSegment = encodeURIComponent(String(post.title || post.slug || id));
+                    if (showStories) {
+                      return (
+                      <li
+                        key={id}
+                        className="bg-[#2b2d2f] p-4 rounded-md flex flex-col sm:flex-row sm:items-center gap-2"
+                      >
+                        <div className="flex-1">
+                        <Link
+                          href={`/stories/${encodeURIComponent(String(item.slug || id))}`}
+                          className="text-white text-md font-semibold hover:underline"
+                        >
+                          {title}
+                        </Link>
+                        <p className="text-gray-300 text-sm mt-1">{excerpt}</p>
+                        </div>
+                        <Link href={`/dashboard/edit/${id}?type=story`}>
+                          <button className="bg-[#7b735c] text-white text-xs px-3 py-2 rounded-md hover:bg-[#6d6553] transition shrink-0">
+                            EDIT
+                          </button>
+                        </Link>
+                      </li>
+                      );
+                    }
+                    const categorySegment = encodeURIComponent(String(item.category || "uncategorized"));
+                    const titleSegment = encodeURIComponent(String(item.title || item.slug || id));
                     return (
                     <li
                       key={id}
@@ -104,6 +155,11 @@ export default async function Dashboard() {
                       </Link>
                       <p className="text-gray-300 text-sm mt-1">{excerpt}</p>
                       </div>
+                      <Link href={`/dashboard/edit/${id}?type=post`}>
+                        <button className="bg-[#7b735c] text-white text-xs px-3 py-2 rounded-md hover:bg-[#6d6553] transition shrink-0">
+                          EDIT
+                        </button>
+                      </Link>
                     </li>
                     );
                 })}
