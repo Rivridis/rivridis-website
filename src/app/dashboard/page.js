@@ -15,6 +15,15 @@ export default async function Dashboard() {
     .find({})
     .sort({ createdAt: -1 })
     .toArray();
+
+  const comments = await db
+    .collection("comments")
+    .find({})
+    .sort({ date: -1 })
+    .limit(5)
+    .toArray();
+
+  const totalComments = await db.collection("comments").countDocuments();
   
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white py-8 px-8 md:px-30">
@@ -104,13 +113,38 @@ export default async function Dashboard() {
         </div>
 
         <div className="bg-[#1a1c1e] rounded-md flex flex-col p-6 relative">
-          <h3 className="text-lg mt-1 tracking-wide">COMMENTS</h3>
-          <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
-            <span className="hidden sm:inline">VIEW COMMENTS</span>
-            <span className="sm:hidden">VIEW</span>
-          </button>
-          <div className="flex-1 mt-16 text-gray-400 text-sm flex items-center justify-center">
-            No comments yet.
+          <h3 className="text-lg mt-1 tracking-wide">COMMENTS ({totalComments})</h3>
+          <Link href="/dashboard/comments">
+            <button className="absolute top-6 right-6 bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
+              <span className="hidden sm:inline">VIEW COMMENTS</span>
+              <span className="sm:hidden">VIEW</span>
+            </button>
+          </Link>
+          <div className="flex-1 mt-4 text-gray-400 text-sm">
+            {comments.length === 0 ? (
+              <div className="flex items-center justify-center h-24">
+                No comments yet.
+              </div>
+            ) : (
+              <ul className="space-y-3 mt-2">
+                {comments.map((c, idx) => (
+                  <li
+                    key={c._id?.toString() || idx}
+                    className="bg-[#2b2d2f] p-3 rounded-md"
+                  >
+                    <p className="text-white text-sm font-semibold">
+                      {c.name}{" "}
+                      <span className="text-gray-500 font-normal text-xs">
+                        • {c.postTitle || "a post"}
+                      </span>
+                    </p>
+                    <p className="text-gray-300 text-sm mt-1 line-clamp-2">
+                      {String(c.message).slice(0, 120)}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>

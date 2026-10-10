@@ -3,10 +3,12 @@ import Navbar from "src/app/components/navbar.js"
 import Footer from "src/app/components/footer.js"
 import Link from "next/link";
 import ReactMarkdown from 'react-markdown';
+import Comments from "./comments.js";
 
 export default async function PostPage({ params }) {
-  const { title } = await params;
+  const { slug, title } = await params;
   const decodedTitle = decodeURIComponent(title);
+  const decodedSlug = slug ? decodeURIComponent(slug) : "";
   const client = await clientPromise;
   const db = client.db("blog-data");
 
@@ -15,6 +17,9 @@ export default async function PostPage({ params }) {
   if (!posts || posts.length === 0) {
     return <p>No posts found with this title</p>;
   }
+
+  const post = posts[0];
+  const postId = post._id.toString();
 
 return (
     <main className="flex flex-col min-h-screen bg-[#ede9e5]">
@@ -29,6 +34,7 @@ return (
                 </div>
             ))}
         </ul>
+        <Comments postId={postId} postTitle={post.title} postCategory={post.category || decodedSlug} />
      </div>
     </main>
 );

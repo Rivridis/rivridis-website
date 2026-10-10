@@ -15,6 +15,7 @@ export async function deletePost(formData) {
   const db = client.db("blog-data");
 
   await db.collection("blogs").deleteOne({ _id: new ObjectId(String(id)) });
+  await db.collection("comments").deleteMany({ postId: String(id) });
 
   // Refresh this page after delete
   revalidatePath("/dashboard/posts");

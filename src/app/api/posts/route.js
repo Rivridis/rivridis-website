@@ -18,6 +18,7 @@ export async function POST(req) {
       title,
       category,
       content,
+      comments: [],
       date: new Date(),
     };
 
