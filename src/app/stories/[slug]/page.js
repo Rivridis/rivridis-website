@@ -60,7 +60,6 @@ export default async function StoryPage({ params }) {
         storySlug={story.slug || decodedSlug}
         storyTitle={story.title || ""}
       />
-      <Footer />
     </main>
   );
 }
