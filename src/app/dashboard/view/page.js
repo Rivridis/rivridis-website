@@ -157,7 +157,7 @@ export default async function PostsPage({ searchParams }) {
                       </Link>
                       <p className="text-gray-300 text-sm mt-1">{excerpt}</p>
                       <p className="text-xs text-gray-500 mt-1">
-                        {showStories ? `Slug: ${post.slug || "—"}` : `Category: ${post.category || "Uncategorized"}`} • {date}
+                        {showStories ? `${post.slug || "—"}` : `Category: ${post.category || "Uncategorized"}`} • {date}
                       </p>
                     </div>
 
