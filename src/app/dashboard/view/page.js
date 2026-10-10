@@ -26,23 +26,44 @@ export async function deletePost(formData) {
   }
 
   // Refresh this page after delete
-  revalidatePath("/dashboard/posts");
+  revalidatePath("/dashboard/view");
 }
 
 
 
 // Server Component (runs on the server)
+const PAGE_SIZE = 20;
+
 export default async function PostsPage({ searchParams }) {
   const sp = await searchParams;
   const showStories = sp?.type === "stories";
+  const page = Math.max(1, parseInt(String(sp?.page ?? "1"), 10) || 1);
 
   // Connect to MongoDB
   const client = await clientPromise;
 
-  // Fetch all posts or stories, newest first
-  const posts = showStories
-    ? await client.db("story-data").collection("stories").find({}).sort({ date: -1 }).toArray()
-    : await client.db("blog-data").collection("blogs").find({}).sort({ createdAt: -1 }).toArray();
+  // Perf: old code pulled the ENTIRE collection (full `content` bodies +
+  // embedded `comments` arrays) on every tab switch. Now: one indexed
+  // count + one 20-doc page, fetched in parallel. `comments: 0` drops the
+  // potentially huge embedded comments array from the transfer.
+  const coll = showStories
+    ? client.db("story-data").collection("stories")
+    : client.db("blog-data").collection("blogs");
+  const sort = showStories ? { date: -1 } : { createdAt: -1 };
+
+  const [total, posts] = await Promise.all([
+    coll.countDocuments({}),
+    coll
+      .find({}, { projection: { comments: 0 } })
+      .sort(sort)
+      .skip((page - 1) * PAGE_SIZE)
+      .limit(PAGE_SIZE)
+      .toArray(),
+  ]);
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const typeQs = showStories ? "?type=stories&" : "?";
+  const pageHref = (p) => `/dashboard/view${typeQs}page=${p}`;
 
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white py-8 px-8 md:px-30">
@@ -55,7 +76,7 @@ export default async function PostsPage({ searchParams }) {
         {/* Header Section */}
         <div className="flex items-center gap-3 mb-8">
           <h2 className="text-xl sm:text-2xl tracking-wide font-semibold truncate">
-            {showStories ? `All Stories (${posts.length})` : `All Posts (${posts.length})`}
+            {showStories ? `All Stories (${total})` : `All Posts (${total})`}
           </h2>
           {/* Desktop: inline tabs */}
           <div className="hidden sm:flex gap-2 shrink-0">
@@ -164,6 +185,37 @@ export default async function PostsPage({ searchParams }) {
             </ul>
           )}
         </div>
+
+        {/* Pagination — keeps each page to 20 docs instead of the whole collection */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-3 mt-6">
+            {safePage > 1 ? (
+              <Link href={pageHref(safePage - 1)}>
+                <button className="bg-[#1a1c1e] text-sm px-4 py-2 rounded-md hover:bg-[#2c2e30] transition">
+                  PREV
+                </button>
+              </Link>
+            ) : (
+              <button disabled className="bg-[#1a1c1e] text-sm px-4 py-2 rounded-md opacity-40 cursor-not-allowed">
+                PREV
+              </button>
+            )}
+            <span className="text-sm text-white/70">
+              Page {safePage} of {totalPages}
+            </span>
+            {safePage < totalPages ? (
+              <Link href={pageHref(safePage + 1)}>
+                <button className="bg-[#1a1c1e] text-sm px-4 py-2 rounded-md hover:bg-[#2c2e30] transition">
+                  NEXT
+                </button>
+              </Link>
+            ) : (
+              <button disabled className="bg-[#1a1c1e] text-sm px-4 py-2 rounded-md opacity-40 cursor-not-allowed">
+                NEXT
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

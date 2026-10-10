@@ -15,21 +15,32 @@ export default async function Dashboard({ searchParams }) {
   const blogDb = client.db("blog-data");
   const storyDb = client.db("story-data");
 
-  const posts = await blogDb
-    .collection("blogs")
-    .find({})
-    .sort({ createdAt: -1 })
-    .toArray();
-
-  const stories = await storyDb
-    .collection("stories")
-    .find({})
-    .sort({ date: -1 })
-    .toArray();
-
-  const [postComments, storyComments] = await Promise.all([
+  // Perf: the old code fetched BOTH full collections (including large
+  // `content` bodies + embedded `comments` arrays) on every render, then
+  // sliced 4 items in JS. Now we fetch counts + only the 4 recent docs
+  // for the active tab, all in parallel.
+  const RECENT_LIMIT = 4;
+  const [
+    postCount,
+    storyCount,
+    recent,
+    postComments,
+    storyComments,
+    postCommentCount,
+    storyCommentCount,
+  ] = await Promise.all([
+    blogDb.collection("blogs").estimatedDocumentCount(),
+    storyDb.collection("stories").estimatedDocumentCount(),
+    (showStories
+      ? storyDb.collection("stories").find({}).sort({ date: -1 })
+      : blogDb.collection("blogs").find({}).sort({ createdAt: -1 })
+    )
+      .limit(RECENT_LIMIT)
+      .toArray(),
     blogDb.collection("comments").find({}).sort({ date: -1 }).limit(5).toArray(),
     storyDb.collection("storyComments").find({}).sort({ date: -1 }).limit(5).toArray(),
+    blogDb.collection("comments").estimatedDocumentCount(),
+    storyDb.collection("storyComments").estimatedDocumentCount(),
   ]);
 
   const comments = [
@@ -39,13 +50,7 @@ export default async function Dashboard({ searchParams }) {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 5);
 
-  const [postCommentCount, storyCommentCount] = await Promise.all([
-    blogDb.collection("comments").countDocuments(),
-    storyDb.collection("storyComments").countDocuments(),
-  ]);
   const totalComments = postCommentCount + storyCommentCount;
-
-  const recent = (showStories ? stories : posts).slice(0, 4);
   
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white py-8 px-8 md:px-30">
@@ -82,8 +87,8 @@ export default async function Dashboard({ searchParams }) {
         </div>
 
         <div className="bg-[#1a1c1e] rounded-md flex flex-col items-center justify-center px-6 py-6 gap-1">
-          <p className="text-lg tracking-wide">TOTAL POSTS: {posts.length}</p>
-          <p className="text-lg tracking-wide">TOTAL STORIES: {stories.length}</p>
+          <p className="text-lg tracking-wide">TOTAL POSTS: {postCount}</p>
+          <p className="text-lg tracking-wide">TOTAL STORIES: {storyCount}</p>
         </div>
 
         {/* Bottom Row */}

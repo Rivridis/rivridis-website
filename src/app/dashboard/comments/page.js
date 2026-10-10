@@ -18,15 +18,17 @@ export async function deleteComment(formData) {
   if (type === "story") {
     const db = client.db("story-data");
     await db.collection("storyComments").deleteOne({ _id: commentId });
+    // Perf: old code ran updateMany({}) which rewrote EVERY story doc on
+    // each delete. Constrain to docs that actually embed this comment.
     await db
       .collection("stories")
-      .updateMany({}, { $pull: { comments: { _id: commentId } } });
+      .updateMany({ "comments._id": commentId }, { $pull: { comments: { _id: commentId } } });
   } else {
     const db = client.db("blog-data");
     await db.collection("comments").deleteOne({ _id: commentId });
     await db
       .collection("blogs")
-      .updateMany({}, { $pull: { comments: { _id: commentId } } });
+      .updateMany({ "comments._id": commentId }, { $pull: { comments: { _id: commentId } } });
   }
 
   revalidatePath("/dashboard/comments");
@@ -59,16 +61,26 @@ export default async function CommentsPage({ searchParams }) {
 
   // Items for the dropdown — both lists go to the client filter bar so the
   // item list updates instantly when the type changes (no FILTER press).
-  const [postOptionsRaw, storyOptionsRaw] = await Promise.all([
-    blogDb.collection("comments").aggregate([
-      { $group: { _id: "$postId", itemTitle: { $first: "$postTitle" }, count: { $sum: 1 } } },
-      { $sort: { itemTitle: 1 } },
-    ]).toArray(),
-    storyDb.collection("storyComments").aggregate([
-      { $group: { _id: "$storyId", itemTitle: { $first: "$storyTitle" }, count: { $sum: 1 } } },
-      { $sort: { itemTitle: 1 } },
-    ]).toArray(),
-  ]);
+  // Perf: all independent reads fire in one batch instead of 3 sequential rounds.
+  const [postOptionsRaw, storyOptionsRaw, postCount, storyCount, postComments, storyComments] =
+    await Promise.all([
+      blogDb.collection("comments").aggregate([
+        { $group: { _id: "$postId", itemTitle: { $first: "$postTitle" }, count: { $sum: 1 } } },
+        { $sort: { itemTitle: 1 } },
+      ]).toArray(),
+      storyDb.collection("storyComments").aggregate([
+        { $group: { _id: "$storyId", itemTitle: { $first: "$storyTitle" }, count: { $sum: 1 } } },
+        { $sort: { itemTitle: 1 } },
+      ]).toArray(),
+      blogDb.collection("comments").estimatedDocumentCount(),
+      storyDb.collection("storyComments").estimatedDocumentCount(),
+      showPosts
+        ? blogDb.collection("comments").find({}).sort({ date: -1 }).limit(500).toArray()
+        : [],
+      showStories
+        ? storyDb.collection("storyComments").find({}).sort({ date: -1 }).limit(500).toArray()
+        : [],
+    ]);
   const postOptions = postOptionsRaw.map((p) => ({
     kind: "post",
     id: String(p._id),
@@ -82,21 +94,7 @@ export default async function CommentsPage({ searchParams }) {
     count: p.count,
   }));
 
-  const [postCount, storyCount] = await Promise.all([
-    blogDb.collection("comments").countDocuments(),
-    storyDb.collection("storyComments").countDocuments(),
-  ]);
   const totalCount = postCount + storyCount;
-
-  // Fetch (capped per collection, then merge + sort)
-  const [postComments, storyComments] = await Promise.all([
-    showPosts
-      ? blogDb.collection("comments").find({}).sort({ date: -1 }).limit(500).toArray()
-      : [],
-    showStories
-      ? storyDb.collection("storyComments").find({}).sort({ date: -1 }).limit(500).toArray()
-      : [],
-  ]);
 
   let comments = [
     ...postComments.map((c) => ({
