@@ -25,7 +25,7 @@ export default function Home() {
                     <p className="text-zinc-200">A windows assistant based on Pyside 6 that interfaces with local LLMs to call functions and act as a general assistant.</p>
                 </div>
                 <img
-                    src="ai.png"
+                    src="/ai.png"
                     className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
@@ -36,7 +36,7 @@ export default function Home() {
                     <p className="text-zinc-200">Fireworks is a cozy multiplayer world where friends can hang out, explore, and play together. Build spaces, dive into dungeons, join PvP mini-games, or just relax in a vibrant city hub, your new virtual hangout beyond chat apps.</p>
                 </div>
                 <img
-                    src="fireworkslogo.png"
+                    src="/fireworkslogo.png"
                     className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>
@@ -48,7 +48,7 @@ export default function Home() {
                     <p className="text-zinc-200">MelodyKit is a easy to use DAW, which can be used for both hobby and professional music production. Try out the beta now!</p>
                 </div>
                 <img
-                    src="melodyicon.png"
+                    src="/melodyicon.png"
                     className="w-32 h-32 object-contain ml-6 rounded-lg bg-zinc-700 hidden md:block"
                 />
             </a>

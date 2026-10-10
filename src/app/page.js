@@ -117,7 +117,7 @@ export default function Home() {
       <motion.div style={{ scale: heroBgScale }} className="fixed inset-0 z-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Hero.png')" }}
+          style={{ backgroundImage: "url('/hero.png')" }}
         />
         {/* legibility wash that keeps the palette */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#ede9e5]/10 via-transparent to-[#0C1016]/35" />
