@@ -26,14 +26,23 @@ export default async function Dashboard({ searchParams }) {
     .sort({ date: -1 })
     .toArray();
 
-  const comments = await blogDb
-    .collection("comments")
-    .find({})
-    .sort({ date: -1 })
-    .limit(5)
-    .toArray();
+  const [postComments, storyComments] = await Promise.all([
+    blogDb.collection("comments").find({}).sort({ date: -1 }).limit(5).toArray(),
+    storyDb.collection("storyComments").find({}).sort({ date: -1 }).limit(5).toArray(),
+  ]);
 
-  const totalComments = await blogDb.collection("comments").countDocuments();
+  const comments = [
+    ...postComments.map((c) => ({ ...c, kind: "post" })),
+    ...storyComments.map((c) => ({ ...c, kind: "story" })),
+  ]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 5);
+
+  const [postCommentCount, storyCommentCount] = await Promise.all([
+    blogDb.collection("comments").countDocuments(),
+    storyDb.collection("storyComments").countDocuments(),
+  ]);
+  const totalComments = postCommentCount + storyCommentCount;
 
   const recent = (showStories ? stories : posts).slice(0, 4);
   
@@ -185,13 +194,16 @@ export default async function Dashboard({ searchParams }) {
               <ul className="space-y-3 mt-2">
                 {comments.map((c, idx) => (
                   <li
-                    key={c._id?.toString() || idx}
+                    key={`${c.kind}-${c._id?.toString() || idx}`}
                     className="bg-[#2b2d2f] p-3 rounded-md"
                   >
                     <p className="text-white text-sm font-semibold">
                       {c.name}{" "}
                       <span className="text-gray-500 font-normal text-xs">
-                        • {c.postTitle || "a post"}
+                        • {c.kind === "story" ? (c.storyTitle || "a story") : (c.postTitle || "a post")}
+                      </span>{" "}
+                      <span className="text-[10px] uppercase tracking-wide text-[#7b735c]">
+                        {c.kind}
                       </span>
                     </p>
                     <p className="text-gray-300 text-sm mt-1 line-clamp-2">

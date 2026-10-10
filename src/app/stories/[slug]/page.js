@@ -3,6 +3,7 @@ import Footer from "src/app/components/footer.js";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import clientPromise from "@/lib/mongo.js";
+import Comments from "./comments.js";
 
 export default async function StoryPage({ params }) {
   const { slug } = await params;
@@ -54,6 +55,12 @@ export default async function StoryPage({ params }) {
           </div>
         </section>
       </div>
+      <Comments
+        storyId={story._id.toString()}
+        storySlug={story.slug || decodedSlug}
+        storyTitle={story.title || ""}
+      />
+      <Footer />
     </main>
   );
 }

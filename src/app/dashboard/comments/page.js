@@ -3,21 +3,31 @@ import Link from "next/link";
 import Navbar from "src/app/components/navbar.js";
 import { ObjectId } from "mongodb";
 import { revalidatePath } from "next/cache";
+import FilterBar from "./filter-bar.js";
 
 export async function deleteComment(formData) {
   "use server";
 
   const id = formData.get("id");
+  const type = formData.get("type");
   if (!id || !ObjectId.isValid(String(id))) return;
 
   const client = await clientPromise;
-  const db = client.db("blog-data");
   const commentId = new ObjectId(String(id));
 
-  await db.collection("comments").deleteOne({ _id: commentId });
-  await db
-    .collection("blogs")
-    .updateMany({}, { $pull: { comments: { _id: commentId } } });
+  if (type === "story") {
+    const db = client.db("story-data");
+    await db.collection("storyComments").deleteOne({ _id: commentId });
+    await db
+      .collection("stories")
+      .updateMany({}, { $pull: { comments: { _id: commentId } } });
+  } else {
+    const db = client.db("blog-data");
+    await db.collection("comments").deleteOne({ _id: commentId });
+    await db
+      .collection("blogs")
+      .updateMany({}, { $pull: { comments: { _id: commentId } } });
+  }
 
   revalidatePath("/dashboard/comments");
   revalidatePath("/dashboard");
@@ -28,50 +38,111 @@ function escapeRegex(s) {
   return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function matchesSearch(c, rx) {
+  return (
+    rx.test(c.name || "") || rx.test(c.message || "") || rx.test(c.itemTitle || "")
+  );
+}
+
 export default async function CommentsPage({ searchParams }) {
   const sp = await searchParams;
+  const typeFilter = sp?.type === "posts" || sp?.type === "stories" ? sp.type : "all";
   const q = String(sp?.q || "").trim();
-  const postFilter = String(sp?.post || "").trim();
+  const itemFilter = String(sp?.item || "").trim(); // "post:<id>" or "story:<id>"
+
+  const showPosts = typeFilter === "all" || typeFilter === "posts";
+  const showStories = typeFilter === "all" || typeFilter === "stories";
 
   const client = await clientPromise;
-  const db = client.db("blog-data");
+  const blogDb = client.db("blog-data");
+  const storyDb = client.db("story-data");
 
-  // Posts that have at least one comment (for the dropdown)
-  const postOptions = await db
-    .collection("comments")
-    .aggregate([
-      {
-        $group: {
-          _id: "$postId",
-          postTitle: { $first: "$postTitle" },
-          postCategory: { $first: "$postCategory" },
-          count: { $sum: 1 },
-        },
-      },
-      { $sort: { postTitle: 1 } },
-    ])
-    .toArray();
+  // Items for the dropdown — both lists go to the client filter bar so the
+  // item list updates instantly when the type changes (no FILTER press).
+  const [postOptionsRaw, storyOptionsRaw] = await Promise.all([
+    blogDb.collection("comments").aggregate([
+      { $group: { _id: "$postId", itemTitle: { $first: "$postTitle" }, count: { $sum: 1 } } },
+      { $sort: { itemTitle: 1 } },
+    ]).toArray(),
+    storyDb.collection("storyComments").aggregate([
+      { $group: { _id: "$storyId", itemTitle: { $first: "$storyTitle" }, count: { $sum: 1 } } },
+      { $sort: { itemTitle: 1 } },
+    ]).toArray(),
+  ]);
+  const postOptions = postOptionsRaw.map((p) => ({
+    kind: "post",
+    id: String(p._id),
+    title: p.itemTitle || "Untitled",
+    count: p.count,
+  }));
+  const storyOptions = storyOptionsRaw.map((p) => ({
+    kind: "story",
+    id: String(p._id),
+    title: p.itemTitle || "Untitled",
+    count: p.count,
+  }));
 
-  const totalCount = await db.collection("comments").countDocuments();
+  const [postCount, storyCount] = await Promise.all([
+    blogDb.collection("comments").countDocuments(),
+    storyDb.collection("storyComments").countDocuments(),
+  ]);
+  const totalCount = postCount + storyCount;
 
-  // Build filtered query
-  const filter = {};
-  if (postFilter) filter.postId = postFilter;
-  if (q) {
-    const rx = { $regex: escapeRegex(q), $options: "i" };
-    filter.$or = [{ name: rx }, { message: rx }, { postTitle: rx }];
+  // Fetch (capped per collection, then merge + sort)
+  const [postComments, storyComments] = await Promise.all([
+    showPosts
+      ? blogDb.collection("comments").find({}).sort({ date: -1 }).limit(500).toArray()
+      : [],
+    showStories
+      ? storyDb.collection("storyComments").find({}).sort({ date: -1 }).limit(500).toArray()
+      : [],
+  ]);
+
+  let comments = [
+    ...postComments.map((c) => ({
+      ...c,
+      kind: "post",
+      itemTitle: c.postTitle || "",
+      itemHref: `/blog/${encodeURIComponent(String(c.postCategory || "uncategorized"))}/${encodeURIComponent(String(c.postTitle || ""))}`,
+    })),
+    ...storyComments.map((c) => ({
+      ...c,
+      kind: "story",
+      itemTitle: c.storyTitle || "",
+      itemHref: `/stories/${encodeURIComponent(String(c.storySlug || c.storyTitle || ""))}`,
+    })),
+  ].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // Per-item filter — only honored when its kind matches the selected type.
+  // (With "All types" the item dropdown is blank, so any stale item param is ignored.)
+  let effectiveItem = "";
+  let activeItemTitle = "";
+  if (itemFilter) {
+    const [itemKind, ...rest] = itemFilter.split(":");
+    const itemId = rest.join(":");
+    const matchesType =
+      (typeFilter === "posts" && itemKind === "post") ||
+      (typeFilter === "stories" && itemKind === "story");
+    if (matchesType) {
+      effectiveItem = itemFilter;
+      comments = comments.filter(
+        (c) => c.kind === itemKind && String(c.kind === "story" ? c.storyId : c.postId) === itemId
+      );
+      const opts = itemKind === "story" ? storyOptions : postOptions;
+      activeItemTitle = opts.find((p) => p.id === itemId)?.title || "";
+    }
   }
 
-  const comments = await db
-    .collection("comments")
-    .find(filter)
-    .sort({ date: -1 })
-    .limit(500)
-    .toArray();
+  // Text search
+  if (q) {
+    const rx = new RegExp(escapeRegex(q), "i");
+    comments = comments.filter((c) => matchesSearch(c, rx));
+  }
 
-  const isFiltering = Boolean(q || postFilter);
-  const activePostTitle =
-    postOptions.find((p) => String(p._id) === postFilter)?.postTitle || "";
+  const isFiltering = Boolean(q || effectiveItem || typeFilter !== "all");
+
+  const typeLabel =
+    typeFilter === "posts" ? "posts" : typeFilter === "stories" ? "stories" : "posts and stories";
 
   return (
     <div className="min-h-screen bg-[#8a9bb2] text-white py-8 px-8 md:px-30">
@@ -86,7 +157,7 @@ export default async function CommentsPage({ searchParams }) {
               ? `Comments (${comments.length} of ${totalCount})`
               : `All Comments (${totalCount})`}
           </h2>
-          <div className="mt-0">
+          <div className="flex items-center gap-2">
             <Link href="/dashboard">
               <button className="bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition">
                 BACK
@@ -95,56 +166,23 @@ export default async function CommentsPage({ searchParams }) {
           </div>
         </div>
 
-        {/* Filter / search bar (GET form — no client JS needed) */}
-        <form
-          method="get"
-          className="bg-[#1a1c1e] rounded-md p-4 mb-4 flex flex-col md:flex-row gap-3 md:items-center"
-        >
-          <input
-            type="text"
-            name="q"
-            defaultValue={q}
-            placeholder="Search name, text or post title..."
-            className="flex-1 px-3 py-2 rounded-md bg-[#2b2d2f] text-white text-sm border border-[#7b735c] focus:outline-none placeholder:text-gray-500"
-          />
-          <select
-            name="post"
-            defaultValue={postFilter}
-            className="px-3 py-2 rounded-md bg-[#2b2d2f] text-white text-sm border border-[#7b735c] focus:outline-none md:max-w-xs"
-          >
-            <option value="">All posts</option>
-            {postOptions.map((p) => (
-              <option key={String(p._id)} value={String(p._id)}>
-                {(p.postTitle || "Untitled").slice(0, 60)} ({p.count})
-              </option>
-            ))}
-          </select>
-          <div className="flex gap-2">
-            <button
-              type="submit"
-              className="bg-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#6d6553] transition"
-            >
-              FILTER
-            </button>
-            {isFiltering && (
-              <Link href="/dashboard/comments">
-                <button
-                  type="button"
-                  className="bg-transparent border border-[#7b735c] text-sm px-4 py-2 rounded-md hover:bg-[#2c2e30] transition"
-                >
-                  CLEAR
-                </button>
-              </Link>
-            )}
-          </div>
-        </form>
+        {/* Filter bar — type switch applies instantly (client component) */}
+        <FilterBar
+          key={`${typeFilter}|${q}|${effectiveItem}`}
+          type={typeFilter}
+          q={q}
+          item={effectiveItem}
+          postOptions={postOptions}
+          storyOptions={storyOptions}
+          isFiltering={isFiltering}
+        />
 
         {isFiltering && (
           <p className="text-sm text-white/70 mb-4">
             {comments.length === 0
               ? "No comments match your filters."
-              : `Showing ${comments.length} match${comments.length === 1 ? "" : "es"}`}
-            {postFilter && activePostTitle ? ` in "${activePostTitle}"` : ""}
+              : `Showing ${comments.length} match${comments.length === 1 ? "" : "es"} in ${typeLabel}`}
+            {effectiveItem && activeItemTitle ? ` on "${activeItemTitle}"` : ""}
             {q ? ` for "${q}"` : ""}
           </p>
         )}
@@ -157,35 +195,34 @@ export default async function CommentsPage({ searchParams }) {
           ) : (
             <ul className="space-y-4">
               {comments.map((c, idx) => {
-                const id = c._id?.toString() || idx;
+                const id = c._id?.toString() || `${c.kind}-${idx}`;
                 const date = c.date
                   ? new Date(c.date).toLocaleString()
                   : "Unknown date";
-                const categorySegment = encodeURIComponent(
-                  String(c.postCategory || "uncategorized")
-                );
-                const titleSegment = encodeURIComponent(String(c.postTitle || ""));
                 return (
                   <li
-                    key={id}
+                    key={`${c.kind}-${id}`}
                     className="bg-[#2b2d2f] p-5 rounded-md flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                   >
                     <div className="flex-1">
                       <p className="text-white text-sm font-semibold">
                         {c.name}{" "}
-                        <span className="text-gray-500 font-normal">• {date}</span>
+                        <span className="text-gray-500 font-normal">• {date}</span>{" "}
+                        <span className="text-[10px] uppercase tracking-wide text-[#7b735c]">
+                          {c.kind}
+                        </span>
                       </p>
                       <p className="text-gray-300 text-sm mt-2 whitespace-pre-wrap break-words">
                         {c.message}
                       </p>
                       <p className="text-xs text-gray-500 mt-2">
-                        Post:{" "}
-                        {c.postTitle ? (
+                        {c.kind === "story" ? "Story: " : "Post: "}
+                        {c.itemTitle ? (
                           <Link
-                            href={`/blog/${categorySegment}/${titleSegment}`}
+                            href={c.itemHref}
                             className="hover:underline text-gray-400"
                           >
-                            {c.postTitle}
+                            {c.itemTitle}
                           </Link>
                         ) : (
                           "Unknown"
@@ -194,10 +231,11 @@ export default async function CommentsPage({ searchParams }) {
                     </div>
                     <div className="items-center">
                     <form action={deleteComment}>
-                      <input type="hidden" name="id" value={id} />
+                      <input type="hidden" name="id" value={String(c._id)} />
+                      <input type="hidden" name="type" value={c.kind} />
                       <button
                         type="submit"
-                        className="bg-[#1a1c1e] border border-[#7b735c] text-xs px-3 py-2 rounded-md hover:bg-[#2c2e30] transition shrink-0"
+                        className="bg-[#1a1c1e] border border-[#7b735c] text-white text-xs px-3 py-2 rounded-md hover:bg-[#2c2e30] transition shrink-0"
                       >
                         DELETE
                       </button>

@@ -17,6 +17,7 @@ export async function deletePost(formData) {
   if (type === "story") {
     const db = client.db("story-data");
     await db.collection("stories").deleteOne({ _id: new ObjectId(String(id)) });
+    await db.collection("storyComments").deleteMany({ storyId: String(id) });
   } else {
     const db = client.db("blog-data");
     await db.collection("blogs").deleteOne({ _id: new ObjectId(String(id)) });
