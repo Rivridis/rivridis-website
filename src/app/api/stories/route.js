@@ -1,5 +1,6 @@
 import clientPromise from "@/lib/mongo";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 function slugify(s) {
   return String(s || "")
@@ -46,6 +47,8 @@ export async function POST(req) {
     };
 
     const result = await storiesCollection.insertOne(story);
+
+    revalidatePath("/stories");
 
     return NextResponse.json(
       { message: "Story created successfully", storyId: result.insertedId, slug: candidate }

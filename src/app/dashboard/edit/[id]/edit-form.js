@@ -16,6 +16,7 @@ export default function EditForm({ post, updatePost }) {
   const options = useMemo(
     () => ({
       spellChecker: false,
+      minHeight: "280px",
       placeholder: isStory ? "Edit your story in Markdown..." : "Edit your post in Markdown...",
     }),
     [isStory]
@@ -66,7 +67,7 @@ export default function EditForm({ post, updatePost }) {
 
       <div>
         <label className="block text-sm mb-1">Content</label>
-        <div className="[&_.EasyMDEContainer]:bg-[#1a1c1e] [&_.CodeMirror]:bg-[#1a1c1e] [&_.CodeMirror]:text-white [&_.CodeMirror]:border-[#7b735c] [&_.editor-toolbar]:bg-[#1a1c1e] [&_.editor-toolbar]:border-[#7b735c] [&_.editor-toolbar_button]:text-[#7b735c] [&_.editor-toolbar_button:hover]:bg-[#7b735c] [&_.editor-toolbar_button:hover]:text-[#1a1c1e] [&_.CodeMirror-cursor]:border-white">
+        <div className="[&_.EasyMDEContainer]:bg-[#1a1c1e] [&_.CodeMirror]:bg-[#1a1c1e] [&_.CodeMirror]:text-white [&_.CodeMirror]:border-[#7b735c] [&_.CodeMirror]:min-h-[280px] [&_.CodeMirror]:max-h-[380px] [&_.CodeMirror-scroll]:min-h-[280px] [&_.CodeMirror-scroll]:max-h-[380px] [&_.CodeMirror-scroll]:overflow-y-auto [&_.editor-preview]:max-h-[380px] [&_.editor-preview]:overflow-y-auto [&_.CodeMirror.CodeMirror-fullscreen]:max-h-none [&_.CodeMirror.CodeMirror-fullscreen_.CodeMirror-scroll]:max-h-none [&_.editor-toolbar]:bg-[#1a1c1e] [&_.editor-toolbar]:border-[#7b735c] [&_.editor-toolbar_button]:text-[#7b735c] [&_.editor-toolbar_button:hover]:bg-[#7b735c] [&_.editor-toolbar_button:hover]:text-[#1a1c1e] [&_.CodeMirror-cursor]:border-white">
           <SimpleMDE value={content} onChange={setContent} options={options} />
         </div>
       </div>

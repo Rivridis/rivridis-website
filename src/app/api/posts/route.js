@@ -1,5 +1,6 @@
 import clientPromise from "@/lib/mongo";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export async function POST(req) {
   try {
@@ -23,6 +24,8 @@ export async function POST(req) {
     };
 
     const result = await postsCollection.insertOne(post);
+
+    revalidatePath("/blog");
 
     return NextResponse.json({ message: "Post created successfully", postId: result.insertedId });
   } catch (error) {

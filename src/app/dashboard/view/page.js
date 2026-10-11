@@ -19,10 +19,12 @@ export async function deletePost(formData) {
     const db = client.db("story-data");
     await db.collection("stories").deleteOne({ _id: new ObjectId(String(id)) });
     await db.collection("storyComments").deleteMany({ storyId: String(id) });
+    revalidatePath("/stories");
   } else {
     const db = client.db("blog-data");
     await db.collection("blogs").deleteOne({ _id: new ObjectId(String(id)) });
     await db.collection("comments").deleteMany({ postId: String(id) });
+    revalidatePath("/blog");
   }
 
   // Refresh this page after delete

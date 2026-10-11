@@ -50,6 +50,7 @@ export async function updatePost(formData) {
         }
     );
     revalidatePath("/dashboard/view");
+    revalidatePath("/blog");
     redirect('/dashboard/view', RedirectType.replace)
   }
 
