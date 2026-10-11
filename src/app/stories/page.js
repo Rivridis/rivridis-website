@@ -14,10 +14,10 @@ export default async function Home() {
 
   const fmt = (v) =>
     v
-      ? new Date(v).toLocaleDateString("en-US", {
+      ? new Date(v).toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
           year: "numeric",
-          month: "long",
-          day: "numeric",
         })
       : "";
 

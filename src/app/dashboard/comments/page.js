@@ -195,7 +195,13 @@ export default async function CommentsPage({ searchParams }) {
               {comments.map((c, idx) => {
                 const id = c._id?.toString() || `${c.kind}-${idx}`;
                 const date = c.date
-                  ? new Date(c.date).toLocaleString()
+                  ? new Date(c.date).toLocaleString("en-GB", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
                   : "Unknown date";
                 return (
                   <li

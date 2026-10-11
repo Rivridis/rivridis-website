@@ -142,7 +142,11 @@ export default async function PostsPage({ searchParams }) {
                   : `/blog/${encodeURIComponent(String(post.category || "uncategorized"))}/${encodeURIComponent(String(post.title || post.slug || id))}`;
 
                 const date = post.date
-                  ? new Date(post.date).toLocaleDateString()
+                  ? new Date(post.date).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                    })
                   : "Unknown date";
 
                 return (

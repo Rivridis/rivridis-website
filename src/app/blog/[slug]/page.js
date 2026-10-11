@@ -31,7 +31,7 @@ export default async function PostPage({ params }) {
         {posts.map((post) => (
           <div key={post._id} className="border-b border-black py-6 flex justify-between items-center">
             <Link href={`/blog/${post.category}/${post.title}`} className="text-2xl hover:underline">{post.title}</Link>
-            <span className="text-lg">{String(post.date.toDateString())}</span>
+            <span className="text-lg">{post.date ? new Date(post.date).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }) : ""}</span>
 
           </div>
         ))}

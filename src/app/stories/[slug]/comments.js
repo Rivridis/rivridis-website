@@ -139,7 +139,15 @@ export default function Comments({ storyId, storySlug, storyTitle }) {
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <span className="font-semibold text-sm">{c.name}</span>
                   <span className="text-xs text-[#2d2a26]/60">
-                    {c.date ? new Date(c.date).toLocaleString() : ""}
+                    {c.date
+                      ? new Date(c.date).toLocaleString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })
+                      : ""}
                   </span>
                 </div>
                 <p className="text-sm whitespace-pre-wrap break-words">{c.message}</p>
