@@ -12,19 +12,29 @@ export default async function Home() {
     .sort({ date: -1 })
     .toArray();
 
-  const posts = docs.map((d) => ({
-    title: d.title,
-    description: d.description || "",
-    author: d.author || "Rivridis",
-    date: d.date
-      ? new Date(d.date).toLocaleDateString("en-US", {
+  const fmt = (v) =>
+    v
+      ? new Date(v).toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
           day: "numeric",
         })
-      : "",
-    link: `/stories/${d.slug}`,
-  }));
+      : "";
+
+  const posts = docs.map((d) => {
+    const updated =
+      d.updatedAt && d.date && new Date(d.updatedAt).getTime() - new Date(d.date).getTime() > 60_000
+        ? fmt(d.updatedAt)
+        : "";
+    return {
+      title: d.title,
+      description: d.description || "",
+      author: d.author || "Rivridis",
+      date: fmt(d.date),
+      updated,
+      link: `/stories/${d.slug}`,
+    };
+  });
 
   return (
     <main className="flex flex-col min-h-screen bg-[#889cb8]">
@@ -47,6 +57,7 @@ export default async function Home() {
               <p className="mb-4 text-gray-300">{post.description}</p>
               <div className="text-sm text-gray-400">
                 By <span className="font-medium">{post.author}</span> &middot; {post.date}
+                {post.updated ? ` · Updated ${post.updated}` : ""}
               </div>
             </a>
           ))
